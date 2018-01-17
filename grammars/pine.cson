@@ -3,7 +3,6 @@ scopeName: "source.pine"
 fileTypes: [
   "pine"
 ]
-firstLineMatch: '^#!\\s*\\/.*\\spine'
 patterns: [
   {
     include: "#markup"
