@@ -1,6 +1,6 @@
 {
   "name": "language-pine",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "description": "Pine language support in Atom",
   "keywords": [
     "pine"
