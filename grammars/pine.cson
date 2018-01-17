@@ -3,6 +3,7 @@ scopeName: "source.pine"
 fileTypes: [
   "pine"
 ]
+firstLineMatch: '^#!\\s*\\/.*\\snit'
 patterns: [
   {
     include: "#strings"
@@ -18,9 +19,6 @@ patterns: [
   }
   {
     include: "#variable"
-  }
-  {
-    include: "#entity"
   }
 ]
 repository:
@@ -88,108 +86,5 @@ repository:
       {
         name: "keyword.operator.pine"
         match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|\\(|\\)|\\{|\\}|\\[|\\]|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|^|\\||&=|^=|\\|=)"
-      }
-    ]
-  "markup":
-    patterns: [
-      {
-        begin: "(?xi)(?<=
-          \\\"java\\\"|
-          \\\"java\\sinner\\\"
-        )\\s`{"
-        end: "`}"
-        captures:
-          0:
-            name: "punctuation.section.embedded.markup.nit"
-        name: "meta.source.java"
-        patterns: [
-          {
-            include: "source.java"
-          }
-        ]
-      }
-      {
-        begin: "(?xi)(?<=
-          \\\"objc\\\"|
-          \\\"objc\\sbody\\\"|
-          \\\"objc\\sheader\\\"
-        )\\s`{"
-        end: "`}"
-        captures:
-          0:
-            name: "punctuation.section.embedded.markup.nit"
-        name: "meta.source.objc"
-        patterns: [
-          {
-            include: '#c-blocks'
-          }
-          {
-            include: "source.objc"
-          }
-        ]
-      }
-      {
-        begin: "(?xi)(?<=
-          \\\"c\\+\\+\\\"|
-          \\\"c\\+\\+\\sbody\\\"|
-          \\\"c\\+\\+\\sheader\\\"
-        )\\s`{"
-        end: "`}"
-        captures:
-          0:
-            name: "punctuation.section.embedded.markup.nit"
-        name: "meta.source.cpp"
-        patterns: [
-          {
-            captures:
-              1:
-                name: 'support.function.any-method.c'
-              2:
-                name: 'punctuation.definition.parameters.c'
-            match: '(?x)(
-                (?!while|for|do|if|else|switch|catch|enumerate|return|r?iterate)
-                (?: \\b[A-Za-z_][A-Za-z0-9_]*+\\b | :: )*+
-              )\\s*(\\()'
-            name: 'meta.function-call.c'
-          }
-          {
-            include: "source.cpp"
-          }
-        ]
-      }
-      {
-        begin: "`{"
-        end: "`}"
-        captures:
-          0:
-            name: "punctuation.section.embedded.markup.nit"
-        name: "meta.source.c"
-        patterns: [
-          {
-            include: "#c-blocks"
-          }
-          {
-            include: 'source.c'
-          }
-        ]
-      }
-    ]
-  "entity":
-    patterns: [
-      {
-        name: "entity.name.function.pine"
-        match: "(?<=fun ).*?(?=:|\\(|\\s|\\n)"
-      }
-      {
-        name: "entity.other.inherited-class.pine"
-        match: "(?<=super )[A-Z][a-zA-Z0-9_]*"
-      }
-      {
-        name: "entity.name.type.pine"
-        match: "[A-Z][a-zA-Z0-9_]*"
-      }
-      {
-        name: "entity.other.attribute-name.pine"
-        match: "_[a-z][a-zA-Z0-9_]*"
       }
     ]
