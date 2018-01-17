@@ -1,0 +1,16 @@
+{
+  "name": "language-pine",
+  "version": "0.0.0",
+  "description": "Pine language support in Atom",
+  "keywords": ["pine"],
+  "repository": "https://github.com/SomBoii/language-pine",
+  "license": "MIT",
+  "engines": {
+    "atom": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/SomBoii/language-pine/issues"
+  },
+  "homepage": "https://github.com/SomBoii/language-pine",
+  "dependencies": {}
+}
