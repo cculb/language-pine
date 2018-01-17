@@ -3,7 +3,7 @@ scopeName: "source.pine"
 fileTypes: [
   "pine"
 ]
-firstLineMatch: '^#!\\s*\\/.*\\snit'
+firstLineMatch: '^#!\\s*\\/.*\\spine'
 patterns: [
   {
     include: "#strings"
