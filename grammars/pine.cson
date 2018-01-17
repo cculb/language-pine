@@ -37,23 +37,21 @@ repository:
         name: "comment.line.number-sign.pine"
       }
     ]
-  "simple-string":
-    name: "string.quoted.double.pine"
-    begin: "\\\""
-    end: "\\\""
-    patterns: [
-      {
-        include: "#short-interpolation"
-      }
-      {
-        name: "string.char.pine"
-        match: "([^\\\\]|\\\\.)"
-      }
-    ]
   "strings":
     patterns: [
       {
-        include: "#simple-string"
+        name: "string.quoted.double.pine"
+        begin: "\\\""
+        end: "\\\""
+        patterns: [
+          {
+            include: "#short-interpolation"
+          }
+          {
+            name: "string.char.pine"
+            match: "([^\\\\]|\\\\.)"
+          }
+        ]
       }
     ]
   "variable":
