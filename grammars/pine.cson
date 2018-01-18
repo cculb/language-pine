@@ -14,6 +14,9 @@ patterns: [
     include: "#keyword"
   }
   {
+    include: "#entity"
+  }
+  {
     include: "#constant"
   }
   {
@@ -85,5 +88,24 @@ repository:
       {
         name: "keyword.operator.pine"
         match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|\\(|\\)|\\{|\\}|\\[|\\]|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|^|\\||&=|^=|\\|=)"
+      }
+    ]
+  "entity":
+    patterns: [
+      {
+        name: "entity.name.function.nit"
+        match: "(?<=fun ).*?(?=:|\\(|\\s|\\n)"
+      }
+      {
+        name: "entity.other.inherited-class.nit"
+        match: "(?<=super )[A-Z][a-zA-Z0-9_]*"
+      }
+      {
+        name: "entity.name.type.nit"
+        match: "[A-Z][a-zA-Z0-9_]*"
+      }
+      {
+        name: "entity.other.attribute-name.nit"
+        match: "_[a-z][a-zA-Z0-9_]*"
       }
     ]
