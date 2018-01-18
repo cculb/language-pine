@@ -34,23 +34,23 @@ repository:
     begin: "(^[ \\t]+)?(?=#)"
     beginCaptures:
       1:
-        name: "punctuation.whitespace.comment.leading.nit"
+        name: "punctuation.whitespace.comment.leading.pine"
     end: "(?!\\G)"
     patterns: [
       {
         begin: "#"
         beginCaptures:
           0:
-            name: "punctuation.definition.comment.nit"
+            name: "punctuation.defipineion.comment.pine"
         end: "\\n"
-        name: "comment.line.number-sign.nit"
+        name: "comment.line.number-sign.pine"
       }
     ]
   "character":
-    name: "string.character.nit"
+    name: "string.character.pine"
     match: "('[^\\\\']'|'\\\\.')"
   "simple-string":
-    name: "string.quoted.double.nit"
+    name: "string.quoted.double.pine"
     begin: "\\\""
     end: "\\\""
     patterns: [
@@ -58,12 +58,12 @@ repository:
         include: "#short-interpolation"
       }
       {
-        name: "string.char.nit"
+        name: "string.char.pine"
         match: "([^\\\\]|\\\\.)"
       }
     ]
   "long-tquote-string":
-    name: "string.triple.nit"
+    name: "string.triple.pine"
     begin: "\\\"\\\"\\\""
     end: "\\\"\\\"\\\""
     patterns: [
@@ -71,12 +71,12 @@ repository:
         include: "#long-interpolation"
       }
       {
-        name: "string.char.nit"
+        name: "string.char.pine"
         match: "([^\\\\]|\\\\.)"
       }
     ]
   "long-tquote-alt-string":
-    name: "string.triple.alt.nit"
+    name: "string.triple.alt.pine"
     begin: "'''"
     end: "'''"
     patterns: [
@@ -85,24 +85,24 @@ repository:
       }
     ]
   "long-interpolation":
-    name: "meta.interpolation.long.nit"
+    name: "meta.interpolation.long.pine"
     begin: "{{{"
     end: "}}}"
     captures:
       0:
-        name: 'punctuation.section.embedded.nit'
+        name: 'punctuation.section.embedded.pine'
     patterns: [
       {
         include: "$self"
       }
     ]
   "short-interpolation":
-    name: "meta.interpolation.short.nit"
+    name: "meta.interpolation.short.pine"
     begin: "{"
     end: "}"
     captures:
       0:
-        name: 'punctuation.section.embedded.nit'
+        name: 'punctuation.section.embedded.pine'
     patterns: [
       {
         include: "$self"
@@ -126,11 +126,11 @@ repository:
   "variable":
     patterns: [
       {
-        name: "variable.language.nit"
+        name: "variable.language.pine"
         match: "\\b(self)\\b"
       }
       {
-        name: "variable.other.nit"
+        name: "variable.other.pine"
         match: "[a-z][a-zA-Z0-9_]*"
       }
     ]
@@ -155,7 +155,7 @@ repository:
         end: "`}"
         captures:
           0:
-            name: "punctuation.section.embedded.markup.nit"
+            name: "punctuation.section.embedded.markup.pine"
         name: "meta.source.java"
         patterns: [
           {
@@ -172,7 +172,7 @@ repository:
         end: "`}"
         captures:
           0:
-            name: "punctuation.section.embedded.markup.nit"
+            name: "punctuation.section.embedded.markup.pine"
         name: "meta.source.objc"
         patterns: [
           {
@@ -192,7 +192,7 @@ repository:
         end: "`}"
         captures:
           0:
-            name: "punctuation.section.embedded.markup.nit"
+            name: "punctuation.section.embedded.markup.pine"
         name: "meta.source.cpp"
         patterns: [
           {
@@ -200,7 +200,7 @@ repository:
               1:
                 name: 'support.function.any-method.c'
               2:
-                name: 'punctuation.definition.parameters.c'
+                name: 'punctuation.defipineion.parameters.c'
             match: '(?x)(
                 (?!while|for|do|if|else|switch|catch|enumerate|return|r?iterate)
                 (?: \\b[A-Za-z_][A-Za-z0-9_]*+\\b | :: )*+
@@ -217,7 +217,7 @@ repository:
         end: "`}"
         captures:
           0:
-            name: "punctuation.section.embedded.markup.nit"
+            name: "punctuation.section.embedded.markup.pine"
         name: "meta.source.c"
         patterns: [
           {
@@ -257,7 +257,7 @@ repository:
           1:
             name: 'variable.other.c'
           2:
-            name: 'punctuation.definition.parameters.c'
+            name: 'punctuation.defipineion.parameters.c'
         match: '(?x)
         (?:
           (?:
@@ -270,7 +270,7 @@ repository:
           (?: (?<=operator) (?: [-*&<>=+!]+ | \\(\\) | \\[\\] ) )
         )
         \\s*(\\()'
-        name: 'meta.initialization.c'
+        name: 'meta.ipineialization.c'
       }
       {
         include: 'source.c#block'
@@ -279,37 +279,37 @@ repository:
   "entity":
     patterns: [
       {
-        name: "entity.name.function.nit"
+        name: "entity.name.function.pine"
         match: "(?<=fun ).*?(?=:|\\(|\\s|\\n)"
       }
       {
-        name: "entity.other.inherited-class.nit"
+        name: "entity.other.inherited-class.pine"
         match: "(?<=super )[A-Z][a-zA-Z0-9_]*"
       }
       {
-        name: "entity.name.type.nit"
+        name: "entity.name.type.pine"
         match: "[A-Z][a-zA-Z0-9_]*"
       }
       {
-        name: "entity.other.attribute-name.nit"
+        name: "entity.other.attribute-name.pine"
         match: "_[a-z][a-zA-Z0-9_]*"
       }
     ]
   "storage":
     patterns: [
       {
-        name: "storage.type.nit"
+        name: "storage.type.pine"
         match: "(?x)\\b(
-          fun|init|class|interface|
+          fun|ipine|class|interface|
           module|import|package|abstract|
           universal|enum
         )\\b"
       }
       {
-        name: "storage.modifier.nit"
+        name: "storage.modifier.pine"
         match: "(?x)\\b(
           private|protected|public|intrude|extern|intern|
-          readable|writable|special|noinit
+          readable|writable|special|noipine
         )\\b"
       }
     ]
