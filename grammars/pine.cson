@@ -36,7 +36,7 @@ repository:
             }
             {
                 name: "meta.function.pine"
-                match: "^\\s*(func)\\s+(?=[A-Za-z_][A-Za-z0-9_]*\\s*\\\(\\\))"
+                match: "^\\s*(func)\\s+([A-Za-z_][A-Za-z0-9_]*\\s*\\()"
                 captures:
                     1:
                         name: "keyword.declaration.pine"
