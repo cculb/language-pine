@@ -1,26 +1,26 @@
 name: "Pine"
 scopeName: "source.pine"
 fileTypes: ["pine"]
-firstLineMatch: '^#!\\s*\\/.*\\spine'
+firstLineMatch: "^#!\\s*\\/.*\\spine"
 patterns: [
-        {
-            include: "#comments"
-        }
-        {
-            include: "#strings"
-        }
-        {
-            include: "#variable"
-        }
-        {
-            include: "#constant"
-        }
-        {
-            include: "#keyword"
-        }
-        {
-            include: "#punctuation"
-        }
+{
+    include: "#comments"
+}
+{
+    include: "#strings"
+}
+{
+    include: "#variable"
+}
+{
+    include: "#constant"
+}
+{
+    include: "#keyword"
+}
+{
+    include: "#punctuation"
+}
 ]
 repository:
     "comments":
@@ -40,57 +40,57 @@ repository:
             }
         ]
     "strings":
-      patterns: [
-        {
-            name: "string.quoted.double.pine"
-            begin: "\\\""
-            end: "\\\""
-            patterns: [
+        patterns: [
             {
-                name: "string.char.pine"
-                match: "([^\\\\]|\\\\.)"
+                name: "string.quoted.double.pine"
+                begin: "\\\""
+                end: "\\\""
+                patterns: [
+                {
+                    name: "string.char.pine"
+                    match: "([^\\\\]|\\\\.)"
+                }
+                ]
             }
-            ]
-        }
         ]
     "variable":
-      patterns: [
-        {
-            name: "variable.other.pine"
-            match: "[A-Za-z_][a-zA-Z0-9_]*"
-        }
+        patterns: [
+            {
+                name: "variable.other.pine"
+                match: "[A-Za-z_][a-zA-Z0-9_]*"
+            }
         ]
     "constant":
         patterns: [
-        {
-            name: "constant.numeric.pine"
-            match: "\\b([0-9]*(\\.|0x|0b)?[0-9]+)\\b"
-        }
-        {
-            name: "constant.language.pine"
-            match: "\\b(true|false|null)\\b"
-        }
+            {
+                name: "constant.numeric.pine"
+                match: "\\b([0-9]*(\\.|0x|0b)?[0-9]+)\\b"
+            }
+            {
+                name: "constant.language.pine"
+                match: "\\b(true|false|null)\\b"
+            }
         ]
     "keyword":
         patterns: [
-        {
-            name: "keyword.control.pine"
-            match: "\\b(where|inherits|if|else|for|while|do|switch|case|default|new|import|try|catch|finally|throw)\\b"
-        }
-        {
-            name: "keyword.breaks.pine"
-            match: "\\b(return|continue|break|pass)\\b"
-        }
-        {
-            name: "keyword.declaration.pine"
-            match: "\\b(var|let|ref)\\b"
-        }
-        {
-            name: "keyword.operator.pine"
-            match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|\\(|\\)|\\{|\\}|\\[|\\]|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|\\^|\\||&=|^=|\\|=)"
-        }
-        {
-            name: "keyword.operator.boolean.pine"
-            match: "\\b(is\\ not|is|not\\ in|in|and|not|or)\\b"
-        }
+            {
+                name: "keyword.control.pine"
+                match: "\\b(where|inherits|if|else|for|while|do|switch|case|default|new|import|try|catch|finally|throw)\\b"
+            }
+            {
+                name: "keyword.breaks.pine"
+                match: "\\b(return|continue|break|pass)\\b"
+            }
+            {
+                name: "keyword.declaration.pine"
+                match: "\\b(var|let|ref)\\b"
+            }
+            {
+                name: "keyword.operator.pine"
+                match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|\\(|\\)|\\{|\\}|\\[|\\]|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|\\^|\\||&=|^=|\\|=)"
+            }
+            {
+                name: "keyword.operator.boolean.pine"
+                match: "\\b(is\\ not|is|not\\ in|in|and|not|or)\\b"
+            }
         ]
