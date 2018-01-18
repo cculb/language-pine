@@ -32,7 +32,7 @@ repository:
             }
             {
                 name: "keyword.declaration.pine"
-                match: "\\b(var|let|ref)\\b"
+                match: "\\b(var|let|ref|func|class|def)\\b"
             }
             {
                 name: "meta.function.pine"
@@ -45,7 +45,7 @@ repository:
             }
             {
                 name: "keyword.operator.pine"
-                match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|\\(|\\)|\\{|\\}|\\[|\\]|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|\\^|\\||&=|^=|\\|=)"
+                match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|\\^|\\||&=|^=|\\|=)"
             }
             {
                 name: "keyword.operator.boolean.pine"
