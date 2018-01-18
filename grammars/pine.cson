@@ -23,6 +23,18 @@ repository:
     "keyword":
         patterns: [
             {
+                name: "keyword.control.pine"
+                match: "\\b(where|inherits|if|else|for|while|do|switch|case|default|new|import|try|catch|finally|throw)\\b"
+            }
+            {
+                name: "keyword.breaks.pine"
+                match: "\\b(return|continue|break|pass)\\b"
+            }
+            {
+                name: "keyword.declaration.pine"
+                match: "\\b(var|let|ref|func|class|def)\\b"
+            }
+            {
                 name: "meta.function.pine"
                 begin: "^\\s*(func)\\s+([A-Za-z_][A-Za-z0-9_]*\\s*\\()"
                 beginCaptures:
@@ -34,18 +46,6 @@ repository:
                 endCaptures:
                     1:
                         name: "variable.other.pine"
-            }
-            {
-                name: "keyword.control.pine"
-                match: "\\b(where|inherits|if|else|for|while|do|switch|case|default|new|import|try|catch|finally|throw)\\b"
-            }
-            {
-                name: "keyword.breaks.pine"
-                match: "\\b(return|continue|break|pass)\\b"
-            }
-            {
-                name: "keyword.declaration.pine"
-                match: "\\b(var|let|ref|func|class|def)\\b"
             }
             {
                 name: "keyword.operator.pine"
