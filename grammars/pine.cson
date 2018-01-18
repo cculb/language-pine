@@ -6,6 +6,15 @@ fileTypes: [
 firstLineMatch: '^#!\\s*\\/.*\\spine'
 patterns: [
   {
+    include: "#markup"
+  }
+  {
+    include: "#entity"
+  }
+  {
+    include: "#storage"
+  }
+  {
     include: "#strings"
   }
   {
@@ -86,5 +95,173 @@ repository:
       {
         name: "keyword.operator.pine"
         match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|\\(|\\)|\\{|\\}|\\[|\\]|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|^|\\||&=|^=|\\|=)"
+      }
+    ]
+    "markup":
+    patterns: [
+      {
+        begin: "(?xi)(?<=
+          \\\"java\\\"|
+          \\\"java\\sinner\\\"
+        )\\s`{"
+        end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.pine"
+        name: "meta.source.java"
+        patterns: [
+          {
+            include: "source.java"
+          }
+        ]
+      }
+      {
+        begin: "(?xi)(?<=
+          \\\"objc\\\"|
+          \\\"objc\\sbody\\\"|
+          \\\"objc\\sheader\\\"
+        )\\s`{"
+        end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.pine"
+        name: "meta.source.objc"
+        patterns: [
+          {
+            include: '#c-blocks'
+          }
+          {
+            include: "source.objc"
+          }
+        ]
+      }
+      {
+        begin: "(?xi)(?<=
+          \\\"c\\+\\+\\\"|
+          \\\"c\\+\\+\\sbody\\\"|
+          \\\"c\\+\\+\\sheader\\\"
+        )\\s`{"
+        end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.pine"
+        name: "meta.source.cpp"
+        patterns: [
+          {
+            captures:
+              1:
+                name: 'support.function.any-method.c'
+              2:
+                name: 'punctuation.defipineion.parameters.c'
+            match: '(?x)(
+                (?!while|for|do|if|else|switch|catch|enumerate|return|r?iterate)
+                (?: \\b[A-Za-z_][A-Za-z0-9_]*+\\b | :: )*+
+              )\\s*(\\()'
+            name: 'meta.function-call.c'
+          }
+          {
+            include: "source.cpp"
+          }
+        ]
+      }
+      {
+        begin: "`{"
+        end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.pine"
+        name: "meta.source.c"
+        patterns: [
+          {
+            include: "#c-blocks"
+          }
+          {
+            include: 'source.c'
+          }
+        ]
+      }
+    ]
+  "c-blocks":
+    patterns: [
+      {
+        include: 'source.c#preprocessor-rule-enabled-block'
+      }
+      {
+        include: 'source.c#preprocessor-rule-disabled-block'
+      }
+      {
+        include: 'source.c#preprocessor-rule-other-block'
+      }
+      {
+        include: 'source.c#sizeof'
+      }
+      {
+        include: 'source.c#access'
+      }
+      {
+        include: 'source.c#libc'
+      }
+      {
+        include: 'source.c#c_function_call'
+      }
+      {
+        captures:
+          1:
+            name: 'variable.other.c'
+          2:
+            name: 'punctuation.defipineion.parameters.c'
+        match: '(?x)
+        (?:
+          (?:
+            (?= \\s ) (?<!else|new|return) (?<=\\w)\\s+
+          )
+        )
+        (
+          (?: [A-Za-z_][A-Za-z0-9_]*+ | :: )++
+          |
+          (?: (?<=operator) (?: [-*&<>=+!]+ | \\(\\) | \\[\\] ) )
+        )
+        \\s*(\\()'
+        name: 'meta.ipineialization.c'
+      }
+      {
+        include: 'source.c#block'
+      }
+    ]
+  "entity":
+    patterns: [
+      {
+        name: "entity.name.function.pine"
+        match: "(?<=fun ).*?(?=:|\\(|\\s|\\n)"
+      }
+      {
+        name: "entity.other.inherited-class.pine"
+        match: "(?<=super )[A-Z][a-zA-Z0-9_]*"
+      }
+      {
+        name: "entity.name.type.pine"
+        match: "[A-Z][a-zA-Z0-9_]*"
+      }
+      {
+        name: "entity.other.attribute-name.pine"
+        match: "_[a-z][a-zA-Z0-9_]*"
+      }
+    ]
+  "storage":
+    patterns: [
+      {
+        name: "storage.type.pine"
+        match: "(?x)\\b(
+          fun|ipine|class|interface|
+          module|import|package|abstract|
+          universal|enum
+        )\\b"
+      }
+      {
+        name: "storage.modifier.pine"
+        match: "(?x)\\b(
+          private|protected|public|intrude|extern|intern|
+          readable|writable|special|noipine
+        )\\b"
       }
     ]
