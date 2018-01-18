@@ -36,13 +36,12 @@ repository:
             }
             {
                 name: "meta.function.pine"
-                begin:
-                beginCaptures: "^\\s*(def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*\\s*\\(\\))"
+                match: "^\\s*(def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*\\s*\\(\\))"
+                captures:
                     1:
                         name: "keyword.declaration.pine"
                     2:
                         name: "variable.other.pine"
-                end: "\\n"
             }
             {
                 name: "keyword.operator.pine"
