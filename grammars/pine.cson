@@ -7,7 +7,7 @@ patterns: [
         include: "#keyword"
     }
     {
-        include: "#comments"
+        include: "#constant"
     }
     {
         include: "#strings"
@@ -16,10 +16,7 @@ patterns: [
         include: "#variable"
     }
     {
-        include: "#constant"
-    }
-    {
-        include: "#punctuation"
+        include: "#comments"
     }
 ]
 repository:
@@ -36,6 +33,16 @@ repository:
             {
                 name: "keyword.declaration.pine"
                 match: "\\b(var|let|ref)\\b"
+            }
+            {
+                name: "meta.function.pine"
+                begin:
+                beginCaptures: "^\\s*(def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*\\s*\\(\\))"
+                    1:
+                        name: "keyword.declaration.pine"
+                    2:
+                        name: "variable.other.pine"
+                end: "\\n"
             }
             {
                 name: "keyword.operator.pine"
