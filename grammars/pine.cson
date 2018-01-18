@@ -82,7 +82,7 @@ repository:
                 match: "\\b(return|continue|break|pass)\\b"
             }
             {
-                name: "keyword.declaration.pine"
+                name: "keyword.control.declaration.pine"
                 match: "\\b(var|let|ref)\\b"
             }
             {
