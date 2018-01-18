@@ -38,89 +38,22 @@ repository:
         name: "comment.line.number-sign.pine"
       }
     ]
-  "character":
-    name: "string.character.pine"
-    match: "('[^\\\\']'|'\\\\.')"
-  "simple-string":
-    name: "string.quoted.double.pine"
-    begin: "\\\""
-    end: "\\\""
-    patterns: [
-      {
-        include: "#short-interpolation"
-      }
-      {
-        name: "string.char.pine"
-        match: "([^\\\\]|\\\\.)"
-      }
-    ]
-  "long-tquote-string":
-    name: "string.triple.pine"
-    begin: "\\\"\\\"\\\""
-    end: "\\\"\\\"\\\""
-    patterns: [
-      {
-        include: "#long-interpolation"
-      }
-      {
-        name: "string.char.pine"
-        match: "([^\\\\]|\\\\.)"
-      }
-    ]
-  "long-tquote-alt-string":
-    name: "string.triple.alt.pine"
-    begin: "'''"
-    end: "'''"
-    patterns: [
-      {
-        include: "#long-interpolation"
-      }
-    ]
-  "long-interpolation":
-    name: "meta.interpolation.long.pine"
-    begin: "{{{"
-    end: "}}}"
-    captures:
-      0:
-        name: 'punctuation.section.embedded.pine'
-    patterns: [
-      {
-        include: "$self"
-      }
-    ]
-  "short-interpolation":
-    name: "meta.interpolation.short.pine"
-    begin: "{"
-    end: "}"
-    captures:
-      0:
-        name: 'punctuation.section.embedded.pine'
-    patterns: [
-      {
-        include: "$self"
-      }
-    ]
   "strings":
     patterns: [
       {
-        include: "#long-tquote-alt-string"
-      }
-      {
-        include: "#long-tquote-string"
-      }
-      {
-        include: "#simple-string"
-      }
-      {
-        include: "#character"
+        name: "string.quoted.double.pine"
+        begin: "\\\""
+        end: "\\\""
+        patterns: [
+          {
+            name: "string.char.pine"
+            match: "([^\\\\]|\\\\.)"
+          }
+        ]
       }
     ]
   "variable":
     patterns: [
-      {
-        name: "variable.language.pine"
-        match: "\\b(self)\\b"
-      }
       {
         name: "variable.other.pine"
         match: "[a-z][a-zA-Z0-9_]*"
