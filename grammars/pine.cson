@@ -1,8 +1,9 @@
-name: "Pine"
-scopeName: "source.pine"
+name: "Nit"
+scopeName: "source.nit"
 fileTypes: [
-  "pine"
+  "nit"
 ]
+firstLineMatch: '^#!\\s*\\/.*\\snit'
 patterns: [
   {
     include: "#markup"
@@ -12,6 +13,9 @@ patterns: [
   }
   {
     include: "#comments"
+  }
+  {
+    include: "#builtins"
   }
   {
     include: "#entity"
@@ -34,23 +38,23 @@ repository:
     begin: "(^[ \\t]+)?(?=#)"
     beginCaptures:
       1:
-        name: "punctuation.whitespace.comment.leading.pine"
+        name: "punctuation.whitespace.comment.leading.nit"
     end: "(?!\\G)"
     patterns: [
       {
         begin: "#"
         beginCaptures:
           0:
-            name: "punctuation.defipineion.comment.pine"
+            name: "punctuation.definition.comment.nit"
         end: "\\n"
-        name: "comment.line.number-sign.pine"
+        name: "comment.line.number-sign.nit"
       }
     ]
   "character":
-    name: "string.character.pine"
+    name: "string.character.nit"
     match: "('[^\\\\']'|'\\\\.')"
   "simple-string":
-    name: "string.quoted.double.pine"
+    name: "string.quoted.double.nit"
     begin: "\\\""
     end: "\\\""
     patterns: [
@@ -58,12 +62,12 @@ repository:
         include: "#short-interpolation"
       }
       {
-        name: "string.char.pine"
+        name: "string.char.nit"
         match: "([^\\\\]|\\\\.)"
       }
     ]
   "long-tquote-string":
-    name: "string.triple.pine"
+    name: "string.triple.nit"
     begin: "\\\"\\\"\\\""
     end: "\\\"\\\"\\\""
     patterns: [
@@ -71,12 +75,12 @@ repository:
         include: "#long-interpolation"
       }
       {
-        name: "string.char.pine"
+        name: "string.char.nit"
         match: "([^\\\\]|\\\\.)"
       }
     ]
   "long-tquote-alt-string":
-    name: "string.triple.alt.pine"
+    name: "string.triple.alt.nit"
     begin: "'''"
     end: "'''"
     patterns: [
@@ -85,24 +89,24 @@ repository:
       }
     ]
   "long-interpolation":
-    name: "meta.interpolation.long.pine"
+    name: "meta.interpolation.long.nit"
     begin: "{{{"
     end: "}}}"
     captures:
       0:
-        name: 'punctuation.section.embedded.pine'
+        name: 'punctuation.section.embedded.nit'
     patterns: [
       {
         include: "$self"
       }
     ]
   "short-interpolation":
-    name: "meta.interpolation.short.pine"
+    name: "meta.interpolation.short.nit"
     begin: "{"
     end: "}"
     captures:
       0:
-        name: 'punctuation.section.embedded.pine'
+        name: 'punctuation.section.embedded.nit'
     patterns: [
       {
         include: "$self"
@@ -123,25 +127,70 @@ repository:
         include: "#character"
       }
     ]
+  "builtins":
+    patterns: [
+      {
+        name: "support.type.core.nit"
+        match: "(?x)\\b(
+          AbstractArray|AbstractArrayRead|Array|ArrayCmp|ArrayMap|ArraySet|
+          BM_Pattern|Bool|Buffer|BufferedReader|Byte|BytePattern|Bytes|
+          CachedAlphaComparator|Char|CircularArray|Cloneable|Coder|Collection|
+          Comparable|Comparator|Couple|CoupleMap|Decoder|DefaultComparator|
+          DefaultReverseComparator|Discrete|DisjointSet|Duplex|Error|FileReader|
+          FileStat|FileStream|FileWriter|Finalizable|FinalizableOnce|FlatBuffer|
+          FlatString|FlatText|Float|HashMap|HashSet|IndexedIterator|Int|IOError|
+          ISODate|Iterator|IteratorDecorator|LineIterator|List|ListIterator|Map|
+          MapComparator|MapIterator|MapKeysIterator|MapRead|MapValuesIterator|
+          Match|MaybeError|MinHeap|NativeArray|NativeString|Numeric|Object|Path|
+          Pattern|PollableReader|Process|ProcessDuplex|ProcessReader|
+          ProcessWriter|Queue|Range|Reader|Ref|Regex|RemovableCollection|
+          RopeBuffer|RopeBufferByteIterator|RopeBufferByteReverseIterator|
+          RopeBufferBytes|RopeBufferCharIterator|RopeBufferCharReverseIterator|
+          RopeBufferChars|Sequence|SequenceRead|Set|SimpleCollection|Stderr|
+          Stdin|Stdout|Stream|String|StringReader|StringWriter|Sys|Task|Text|
+          Writable|Writer
+        )\\b"
+      }
+    ]
   "variable":
     patterns: [
       {
-        name: "variable.language.pine"
+        name: "variable.language.nit"
         match: "\\b(self)\\b"
       }
       {
-        name: "variable.other.pine"
+        name: "variable.other.nit"
         match: "[a-z][a-zA-Z0-9_]*"
       }
     ]
   "constant":
     patterns: [
       {
-        name: "constant.numeric.pine"
-        match: "\\b([0-9]*(\\.|0x|0b)?[0-9]+)\\b"
+        name: "constant.numeric.float_exp.nit"
+        match: "-?(([0-9]*.[0-9])|([0-9]+))+e-?[0-9]+"
       }
       {
-        name: "constant.language.pine"
+        name: "constant.numeric.float.nit"
+        match: "-?[0-9]*\\.[0-9]+"
+      }
+      {
+        name: "constant.numeric.hex.nit"
+        match: "-?0(x|X)[0-9A-Fa-f_]+((u|i)(8|(16)|(32)))?"
+      }
+      {
+        name: "constant.numeric.oct.nit"
+        match: "-?0(o|O)[0-7_]+((u|i)(8|(16)|(32)))?"
+      }
+      {
+        name: "constant.numeric.bin.nit"
+        match: "-?0(b|B)[0-1_]+((u|i)(8|(16)|(32)))?"
+      }
+      {
+        name: "constant.numeric.dec.nit"
+        match: "-?[0-9][0-9_]*((u|i)(8|(16)|(32)))?"
+      }
+      {
+        name: "constant.language.nit"
         match: "\\b(true|false|null)\\b"
       }
     ]
@@ -155,7 +204,7 @@ repository:
         end: "`}"
         captures:
           0:
-            name: "punctuation.section.embedded.markup.pine"
+            name: "punctuation.section.embedded.markup.nit"
         name: "meta.source.java"
         patterns: [
           {
@@ -172,7 +221,7 @@ repository:
         end: "`}"
         captures:
           0:
-            name: "punctuation.section.embedded.markup.pine"
+            name: "punctuation.section.embedded.markup.nit"
         name: "meta.source.objc"
         patterns: [
           {
@@ -192,7 +241,7 @@ repository:
         end: "`}"
         captures:
           0:
-            name: "punctuation.section.embedded.markup.pine"
+            name: "punctuation.section.embedded.markup.nit"
         name: "meta.source.cpp"
         patterns: [
           {
@@ -200,7 +249,7 @@ repository:
               1:
                 name: 'support.function.any-method.c'
               2:
-                name: 'punctuation.defipineion.parameters.c'
+                name: 'punctuation.definition.parameters.c'
             match: '(?x)(
                 (?!while|for|do|if|else|switch|catch|enumerate|return|r?iterate)
                 (?: \\b[A-Za-z_][A-Za-z0-9_]*+\\b | :: )*+
@@ -217,7 +266,7 @@ repository:
         end: "`}"
         captures:
           0:
-            name: "punctuation.section.embedded.markup.pine"
+            name: "punctuation.section.embedded.markup.nit"
         name: "meta.source.c"
         patterns: [
           {
@@ -257,7 +306,7 @@ repository:
           1:
             name: 'variable.other.c'
           2:
-            name: 'punctuation.defipineion.parameters.c'
+            name: 'punctuation.definition.parameters.c'
         match: '(?x)
         (?:
           (?:
@@ -270,7 +319,7 @@ repository:
           (?: (?<=operator) (?: [-*&<>=+!]+ | \\(\\) | \\[\\] ) )
         )
         \\s*(\\()'
-        name: 'meta.ipineialization.c'
+        name: 'meta.initialization.c'
       }
       {
         include: 'source.c#block'
@@ -279,52 +328,76 @@ repository:
   "entity":
     patterns: [
       {
-        name: "entity.name.function.pine"
+        name: "entity.name.function.nit"
         match: "(?<=fun ).*?(?=:|\\(|\\s|\\n)"
       }
       {
-        name: "entity.other.inherited-class.pine"
+        name: "entity.other.inherited-class.nit"
         match: "(?<=super )[A-Z][a-zA-Z0-9_]*"
       }
       {
-        name: "entity.name.type.pine"
+        name: "entity.name.type.nit"
         match: "[A-Z][a-zA-Z0-9_]*"
       }
       {
-        name: "entity.other.attribute-name.pine"
+        name: "entity.other.attribute-name.nit"
         match: "_[a-z][a-zA-Z0-9_]*"
       }
     ]
   "storage":
     patterns: [
       {
-        name: "storage.type.pine"
+        name: "storage.type.nit"
         match: "(?x)\\b(
-          fun|ipine|class|interface|
+          fun|init|class|interface|
           module|import|package|abstract|
           universal|enum
         )\\b"
       }
       {
-        name: "storage.modifier.pine"
+        name: "storage.modifier.nit"
         match: "(?x)\\b(
           private|protected|public|intrude|extern|intern|
-          readable|writable|special|noipine
+          readable|writable|special|noinit
         )\\b"
       }
     ]
   "keyword":
     patterns: [
       {
-        name: "keyword.control.pine"
-        match: "\\b(var|let|where|ref|def|func|class|inherits|if|else|for|while|do|pass|switch|case|default|continue|return|break|new|import|try|catch|finally|throw)\\b"
+        name: "keyword.control.nit"
+        match: "\\b(label|if|then|loop|else|while|for|do|end|in|with)\\b"
       }
       {
-        name: "keyword.operator.boolean.pine"
-        match: "\\b(is\\ not|is|not\\ in|in|and|not|or)\\b"
+        name: "keyword.breaks.nit"
+        match: "\\b(return|continue|break|abort)\\b"
       }
       {
-        name: "keyword.operator.pine"
-        match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|\\(|\\)|\\{|\\}|\\[|\\]|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|^|\\||&=|^=|\\|=)"
+        name: "keyword.declaration.nit"
+        match: "\\b(nullable|once|new|var)\\b"
+      }
+      {
+        name: "keyword.annot.nit"
+        match: "\\b(is)\\b"
+      }
+      {
+        name: "keyword.types.nit"
+        match: "\\b(isa|as|type|isset)\\b"
+      }
+      {
+        name: "keyword.other.special-method.misc.nit"
+        match: "\\b(assert|__debug__|super|implies|redef)\\b"
+      }
+      {
+        name: "keyword.operator.nit"
+        match: "(?x)(
+          ==|\\+=|-=|!=|=|!|@|<=>|<=|<<|<|>=|>>|>|
+          \\(|\\)|\\[\\]|\\[|\\]|,|::|:|\\.\\.\\.|\\.\\.|
+          \\.|\\+|-|\\*\\*|\\*|/|%
+        )"
+      }
+      {
+        name: "keyword.operator.boolean.nit"
+        match: "\\b(and|not|or)\\b"
       }
     ]
