@@ -74,38 +74,14 @@ repository:
     patterns: [
       {
         name: "keyword.control.pine"
-        match: "\\b(label|if|then|loop|else|while|for|do|end|in|with)\\b"
-      }
-      {
-        name: "keyword.breaks.pine"
-        match: "\\b(return|continue|break|abort)\\b"
-      }
-      {
-        name: "keyword.declaration.pine"
-        match: "\\b(nullable|once|new|var)\\b"
-      }
-      {
-        name: "keyword.annot.pine"
-        match: "\\b(is)\\b"
-      }
-      {
-        name: "keyword.types.pine"
-        match: "\\b(isa|as|type|isset)\\b"
-      }
-      {
-        name: "keyword.other.special-method.misc.pine"
-        match: "\\b(assert|__debug__|super|implies|redef)\\b"
-      }
-      {
-        name: "keyword.operator.pine"
-        match: "(?x)(
-          ==|\\+=|-=|!=|=|!|@|<=>|<=|<<|<|>=|>>|>|
-          \\(|\\)|\\[\\]|\\[|\\]|,|::|:|\\.\\.\\.|\\.\\.|
-          \\.|\\+|-|\\*\\*|\\*|/|%
-        )"
+        match: "\\b(var|let|where|ref|def|func|class|inherits|if|else|for|while|do|pass|switch|case|default|continue|return|break|new|import|try|catch|finally|throw)\\b"
       }
       {
         name: "keyword.operator.boolean.pine"
-        match: "\\b(and|not|or)\\b"
+        match: "\\b(is\\ not|is|not\\ in|in|and|not|or)\\b"
+      }
+      {
+        name: "keyword.operator.pine"
+        match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|\\(|\\)|\\{|\\}|\\[|\\]|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|^|\\||&=|^=|\\|=)"
       }
     ]
