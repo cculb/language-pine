@@ -5,19 +5,25 @@ fileTypes: [
 ]
 patterns: [
   {
+    include: "#markup"
+  }
+  {
     include: "#strings"
   }
   {
     include: "#comments"
   }
   {
-    include: "#keyword"
-  }
-  {
     include: "#entity"
   }
   {
+    include: "#keyword"
+  }
+  {
     include: "#constant"
+  }
+  {
+    include: "#storage"
   }
   {
     include: "#variable"
@@ -28,39 +34,103 @@ repository:
     begin: "(^[ \\t]+)?(?=#)"
     beginCaptures:
       1:
-        name: "punctuation.whitespace.comment.leading.pine"
+        name: "punctuation.whitespace.comment.leading.nit"
     end: "(?!\\G)"
     patterns: [
       {
         begin: "#"
         beginCaptures:
           0:
-            name: "punctuation.defipineion.comment.pine"
+            name: "punctuation.definition.comment.nit"
         end: "\\n"
-        name: "comment.line.number-sign.pine"
+        name: "comment.line.number-sign.nit"
+      }
+    ]
+  "character":
+    name: "string.character.nit"
+    match: "('[^\\\\']'|'\\\\.')"
+  "simple-string":
+    name: "string.quoted.double.nit"
+    begin: "\\\""
+    end: "\\\""
+    patterns: [
+      {
+        include: "#short-interpolation"
+      }
+      {
+        name: "string.char.nit"
+        match: "([^\\\\]|\\\\.)"
+      }
+    ]
+  "long-tquote-string":
+    name: "string.triple.nit"
+    begin: "\\\"\\\"\\\""
+    end: "\\\"\\\"\\\""
+    patterns: [
+      {
+        include: "#long-interpolation"
+      }
+      {
+        name: "string.char.nit"
+        match: "([^\\\\]|\\\\.)"
+      }
+    ]
+  "long-tquote-alt-string":
+    name: "string.triple.alt.nit"
+    begin: "'''"
+    end: "'''"
+    patterns: [
+      {
+        include: "#long-interpolation"
+      }
+    ]
+  "long-interpolation":
+    name: "meta.interpolation.long.nit"
+    begin: "{{{"
+    end: "}}}"
+    captures:
+      0:
+        name: 'punctuation.section.embedded.nit'
+    patterns: [
+      {
+        include: "$self"
+      }
+    ]
+  "short-interpolation":
+    name: "meta.interpolation.short.nit"
+    begin: "{"
+    end: "}"
+    captures:
+      0:
+        name: 'punctuation.section.embedded.nit'
+    patterns: [
+      {
+        include: "$self"
       }
     ]
   "strings":
     patterns: [
       {
-        name: "string.quoted.double.pine"
-        begin: "\\\""
-        end: "\\\""
-        patterns: [
-          {
-            include: "#short-interpolation"
-          }
-          {
-            name: "string.char.pine"
-            match: "([^\\\\]|\\\\.)"
-          }
-        ]
+        include: "#long-tquote-alt-string"
+      }
+      {
+        include: "#long-tquote-string"
+      }
+      {
+        include: "#simple-string"
+      }
+      {
+        include: "#character"
       }
     ]
   "variable":
     patterns: [
       {
-        name: "variable.other.pine"
+        name: "variable.language.nit"
+        match: "\\b(self)\\b"
+      }
+      {
+        name: "variable.other.nit"
         match: "[a-z][a-zA-Z0-9_]*"
       }
     ]
@@ -75,19 +145,135 @@ repository:
         match: "\\b(true|false|null)\\b"
       }
     ]
-  "keyword":
+  "markup":
     patterns: [
       {
-        name: "keyword.control.pine"
-        match: "\\b(var|let|where|ref|def|func|class|inherits|if|else|for|while|do|pass|switch|case|default|continue|return|break|new|import|try|catch|finally|throw)\\b"
+        begin: "(?xi)(?<=
+          \\\"java\\\"|
+          \\\"java\\sinner\\\"
+        )\\s`{"
+        end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.nit"
+        name: "meta.source.java"
+        patterns: [
+          {
+            include: "source.java"
+          }
+        ]
       }
       {
-        name: "keyword.operator.boolean.pine"
-        match: "\\b(is\\ not|is|not\\ in|in|and|not|or)\\b"
+        begin: "(?xi)(?<=
+          \\\"objc\\\"|
+          \\\"objc\\sbody\\\"|
+          \\\"objc\\sheader\\\"
+        )\\s`{"
+        end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.nit"
+        name: "meta.source.objc"
+        patterns: [
+          {
+            include: '#c-blocks'
+          }
+          {
+            include: "source.objc"
+          }
+        ]
       }
       {
-        name: "keyword.operator.pine"
-        match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|\\(|\\)|\\{|\\}|\\[|\\]|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|^|\\||&=|^=|\\|=)"
+        begin: "(?xi)(?<=
+          \\\"c\\+\\+\\\"|
+          \\\"c\\+\\+\\sbody\\\"|
+          \\\"c\\+\\+\\sheader\\\"
+        )\\s`{"
+        end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.nit"
+        name: "meta.source.cpp"
+        patterns: [
+          {
+            captures:
+              1:
+                name: 'support.function.any-method.c'
+              2:
+                name: 'punctuation.definition.parameters.c'
+            match: '(?x)(
+                (?!while|for|do|if|else|switch|catch|enumerate|return|r?iterate)
+                (?: \\b[A-Za-z_][A-Za-z0-9_]*+\\b | :: )*+
+              )\\s*(\\()'
+            name: 'meta.function-call.c'
+          }
+          {
+            include: "source.cpp"
+          }
+        ]
+      }
+      {
+        begin: "`{"
+        end: "`}"
+        captures:
+          0:
+            name: "punctuation.section.embedded.markup.nit"
+        name: "meta.source.c"
+        patterns: [
+          {
+            include: "#c-blocks"
+          }
+          {
+            include: 'source.c'
+          }
+        ]
+      }
+    ]
+  "c-blocks":
+    patterns: [
+      {
+        include: 'source.c#preprocessor-rule-enabled-block'
+      }
+      {
+        include: 'source.c#preprocessor-rule-disabled-block'
+      }
+      {
+        include: 'source.c#preprocessor-rule-other-block'
+      }
+      {
+        include: 'source.c#sizeof'
+      }
+      {
+        include: 'source.c#access'
+      }
+      {
+        include: 'source.c#libc'
+      }
+      {
+        include: 'source.c#c_function_call'
+      }
+      {
+        captures:
+          1:
+            name: 'variable.other.c'
+          2:
+            name: 'punctuation.definition.parameters.c'
+        match: '(?x)
+        (?:
+          (?:
+            (?= \\s ) (?<!else|new|return) (?<=\\w)\\s+
+          )
+        )
+        (
+          (?: [A-Za-z_][A-Za-z0-9_]*+ | :: )++
+          |
+          (?: (?<=operator) (?: [-*&<>=+!]+ | \\(\\) | \\[\\] ) )
+        )
+        \\s*(\\()'
+        name: 'meta.initialization.c'
+      }
+      {
+        include: 'source.c#block'
       }
     ]
   "entity":
@@ -107,5 +293,38 @@ repository:
       {
         name: "entity.other.attribute-name.nit"
         match: "_[a-z][a-zA-Z0-9_]*"
+      }
+    ]
+  "storage":
+    patterns: [
+      {
+        name: "storage.type.nit"
+        match: "(?x)\\b(
+          fun|init|class|interface|
+          module|import|package|abstract|
+          universal|enum
+        )\\b"
+      }
+      {
+        name: "storage.modifier.nit"
+        match: "(?x)\\b(
+          private|protected|public|intrude|extern|intern|
+          readable|writable|special|noinit
+        )\\b"
+      }
+    ]
+  "keyword":
+    patterns: [
+      {
+        name: "keyword.control.pine"
+        match: "\\b(var|let|where|ref|def|func|class|inherits|if|else|for|while|do|pass|switch|case|default|continue|return|break|new|import|try|catch|finally|throw)\\b"
+      }
+      {
+        name: "keyword.operator.boolean.pine"
+        match: "\\b(is\\ not|is|not\\ in|in|and|not|or)\\b"
+      }
+      {
+        name: "keyword.operator.pine"
+        match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|\\(|\\)|\\{|\\}|\\[|\\]|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|^|\\||&=|^=|\\|=)"
       }
     ]
