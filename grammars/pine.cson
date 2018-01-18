@@ -74,14 +74,26 @@ repository:
     patterns: [
       {
         name: "keyword.control.pine"
-        match: "\\b(var|let|where|ref|def|func|class|inherits|if|else|for|while|do|pass|switch|case|default|continue|return|break|new|import|try|catch|finally|throw)\\b"
+        match: "\\b(where|inherits|if|else|for|while|do|switch|case|default|new|import|try|catch|finally|throw)\\b"
+      }
+      {
+        name: "keyword.breaks.pine"
+        match: "\\b(return|continue|break|pass)\\b"
+      }
+      {
+        name: "keyword.declaration.pine"
+        match: "\\b(var|let|def|func|class|ref)\\b"
+      }
+      {
+        name: "keyword.operator.pine"
+        match: "(?x)(
+          ==|\\+=|-=|!=|=|!|@|<=>|<=|<<|<|>=|>>|>|
+          \\(|\\)|\\[\\]|\\[|\\]|,|::|:|\\.\\.\\.|\\.\\.|
+          \\.|\\+|-|\\*\\*|\\*|/|%
+        )"
       }
       {
         name: "keyword.operator.boolean.pine"
         match: "\\b(is\\ not|is|not\\ in|in|and|not|or)\\b"
-      }
-      {
-        name: "keyword.operator.pine"
-        match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|\\(|\\)|\\{|\\}|\\[|\\]|,|:|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|^|\\||&=|^=|\\|=)"
       }
     ]
