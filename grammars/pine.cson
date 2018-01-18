@@ -46,10 +46,10 @@ repository:
                 begin: "\\\""
                 end: "\\\""
                 patterns: [
-                {
-                    name: "string.char.pine"
-                    match: "([^\\\\]|\\\\.)"
-                }
+                    {
+                        name: "string.char.pine"
+                        match: "([^\\\\]|\\\\.)"
+                    }
                 ]
             }
         ]
