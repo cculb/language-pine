@@ -24,16 +24,14 @@ repository:
         patterns: [
             {
                 name: "meta.function.pine"
-                begin: "^\\s*(func)\\s+([A-Za-z_][A-Za-z0-9_]*\\s*\\()"
-                beginCaptures:
+                match: "^\\s*(func)\\s+([A-Za-z_][A-Za-z0-9_]*\\s*\\(\\))\\s*(:)"
+                captures:
                     1:
                         name: "keyword.declaration.pine"
                     2:
                         name: "variable.other.pine"
-                end: "(\\))\\s*:"
-                endCaptures:
-                    1:
-                        name: "variable.other.pine"
+                    3:
+                        name: "keyword.operator.pine"
             }
             {
                 name: "keyword.control.pine"
