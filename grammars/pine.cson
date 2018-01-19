@@ -24,16 +24,16 @@ repository:
         patterns: [
             {
                 name: "meta.class.pine"
-                begin: "^\\s*(class)\\s+(?=[a-zA-Z_][a-zA-Z_0-9]*"
+                begin: "^\\s*(class)\\s+([a-zA-Z_][a-zA-Z_0-9]*)"
                 beginCaptures:
                     1:
                         name: "storage.type.class.pine"
+                    2:
+                        name: "entity.name.type.class.pine"
                 end: "((\\:))"
                 endCaptures:
                     1:
-                        name: "punctuation.definition.inheritance.end.pine"
-                    2:
-                        name: "punctuation.section.class.begin.pine"
+                        name: "keyword.operator.pine"
             }
             {
                 name: "keyword.control.pine"
