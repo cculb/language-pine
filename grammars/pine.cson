@@ -42,9 +42,9 @@ repository:
                         contentName: "entity.name.type.class.python"
                         end: "(?![A-Za-z0-9_])"
                         patterns: [
-                        {
-                            include: "#entity_name_class"
-                        }
+                            {
+                                include: "#entity_name_class"
+                            }
                         ]
                     }
                     {
