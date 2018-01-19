@@ -71,7 +71,7 @@ repository:
     "variable":
         patterns: [
             {
-                name: "variable.other.pine"
+                name: "variable.pine"
                 match: "[A-Za-z_][a-zA-Z0-9_]*"
             }
         ]
