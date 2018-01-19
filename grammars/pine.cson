@@ -34,6 +34,7 @@ repository:
                         name: "punctuation.definition.inheritance.end.pine"
                     2:
                         name: "punctuation.section.class.begin.pine"
+            }
             {
                 name: "keyword.control.pine"
                 match: "\\b(where|inherits|if|else|for|while|do|switch|case|default|new|import|try|catch|finally|throw)\\b"
