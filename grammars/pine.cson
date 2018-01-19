@@ -46,26 +46,25 @@ repository:
                             include: "#entity_name_class"
                         }
                         ]
-                      }
-                  {
-                      begin: "(\\()"
-                      beginCaptures:
-                          1:
-                              name: "punctuation.definition.inheritance.begin.python"
-                      contentName: "meta.class.inheritance.python"
-                      end: "(?=\\)|:)"
-                      patterns: [
-                      {
-                          begin: "(?<=\\(|,)\\s*"
-                          contentName: "entity.other.inherited-class.python"
-                          end: "\\s*(?:(,)|(?=\\)))"
-                          endCaptures:
-                              1:
-                                  name: "punctuation.separator.inheritance.python"
+                    }
+                    {
+                        begin: "(\\()"
+                        beginCaptures:
+                            1:
+                                name: "punctuation.definition.inheritance.begin.python"
+                        contentName: "meta.class.inheritance.python"
+                        end: "(?=\\)|:)"
+                        patterns: [
+                            {
+                                begin: "(?<=\\(|,)\\s*"
+                                contentName: "entity.other.inherited-class.python"
+                                end: "\\s*(?:(,)|(?=\\)))"
+                                endCaptures:
+                                    1:
+                                        name: "punctuation.separator.inheritance.python"
+                            }
                         ]
-                      }
-                    ]
-                  }
+                    }
                 ]
             }
             {
