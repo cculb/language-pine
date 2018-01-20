@@ -17,14 +17,12 @@ patterns: [
     }
     {
         name: "meta.function.pine"
-        match: "^\\s*(func)\\s+(?=[A-Za-z_][A-Za-z0-9_]*\\s*\\(\\))(?=:)"
+        match: "^\\s*(func)\\s+(?=[A-Za-z_][A-Za-z0-9_]*\\s*\\(\\))"
         captures:
             1:
                 name: "keyword.control.pine"
             2:
                 name: "entity.name.function.pine"
-            3:
-                name: "keyword.operator.pine"
     }
     {
         include: "#comments"
