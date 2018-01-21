@@ -5,7 +5,7 @@ firstLineMatch: "^#!\\s*\\/.*\\spine"
 patterns: [
     {
         name: "punctuation.definition.parameters.pine"
-        match: "(\\()(\\s*[A-Za-z_][A-Za-z0-9_]*\\s*(,)?\\s*)*(\\))(where)?(\\s+([A-Za-z_][A-Za-z0-9_]*\\s*(,)*))*"
+        match: "(\\()\\s*([A-Za-z_][A-Za-z0-9_]*\\s*(,)?\\s*)*(\\))(where)?(\\s+([A-Za-z_][A-Za-z0-9_]*\\s*(,)*))*"
         captures:
             1:
                 name: "punctuation.definition.parameters.begin.pine"
