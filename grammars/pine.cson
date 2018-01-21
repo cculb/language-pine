@@ -4,25 +4,6 @@ fileTypes: ["pine"]
 firstLineMatch: "^#!\\s*\\/.*\\spine"
 patterns: [
     {
-        name: "punctuation.definition.parameters.pine"
-        match: "(\\()\\s*([A-Za-z_][A-Za-z0-9_]*\\s*(,)?\\s*)*(\\))(where)?(\\s+([A-Za-z_][A-Za-z0-9_]*\\s*(,)*))*"
-        captures:
-            1:
-                name: "punctuation.definition.parameters.begin.pine"
-            2:
-                name: "variable.parameter.pine"
-            3:
-                name: "punctuation.definition.separator.pine"
-            4:
-                name: "punctuation.definition.parameters.end.pine"
-            5:
-                name: "keyword.control.pine"
-            6:
-                name: "variable.parameter.pine"
-            7:
-                name: "punctuation.definition.separator.pine"
-    }
-    {
         include: "#keyword"
     }
     {
