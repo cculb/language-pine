@@ -4,29 +4,23 @@ fileTypes: ["pine"]
 firstLineMatch: "^#!\\s*\\/.*\\spine"
 patterns: [
     {
-        name: "meta.function.pine"
-        begin: "^\\s*(func|def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*)"
-        beginCaptures:
-            1:
-                name: "storage.type.function.pine"
-        end: "(\\()|\\s*($\\n?|#.*$\\n?)"
-        endCaptures:
+        name: "punctuation.definition.parameters.pine"
+        match: "(\\()(\\s*[A-Za-z_][A-Za-z0-9_]*\\s*(,)*)*(\\))(where)?(\\s+([A-Za-z_][A-Za-z0-9_]*\\s*(,)*))*"
+        captures:
             1:
                 name: "punctuation.definition.parameters.begin.pine"
             2:
-                name: "invalid.illegal.missing-parameters.pine"
-        patterns: [
-            {
-                begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
-                contentName: "entity.name.function.pine"
-                end: "(?![A-Za-z0-9_])"
-                patterns: [
-                    {
-                        include: "#entity_name_function"
-                    }
-                ]
-            }
-        ]
+                name: "variable.parameter.pine"
+            3:
+                name: "punctuation.definition.separator.pine"
+            4:
+                name: "punctuation.definition.parameters.end.pine"
+            5:
+                name: "keyword.control.pine"
+            6:
+                name: "variable.parameter.pine"
+            7:
+                name: "punctuation.definition.separator.pine"
     }
     {
         include: "#keyword"
