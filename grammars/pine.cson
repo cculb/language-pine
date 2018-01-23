@@ -20,7 +20,7 @@ patterns: [
                 end: "(?![A-Za-z_][A-Za-z0-9_]*)"
             }
             {
-                begin: "\\s*(where)\\s*"
+                begin: "\\b(where)\\b"
                 beginCaptures:
                     1:
                         name: "keyword.control.pine"
