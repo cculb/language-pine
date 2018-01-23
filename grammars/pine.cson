@@ -23,11 +23,11 @@ patterns: [
                 begin: "(?=\\()"
                 beginCaptures:
                     1:
-                        name: "punctuation.definition.parameters.begin.pine"
+                        name: "punctuation.definition.parameters.pine"
                 end: "(?=\\))"
                 endCaptures:
                     1:
-                        name: "punctuation.definition.parameters.end.pine"
+                        name: "punctuation.definition.parameters.pine"
             }
         ]
     }
