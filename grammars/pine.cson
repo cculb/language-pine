@@ -4,6 +4,62 @@ fileTypes: ["pine"]
 firstLineMatch: "^#!\\s*\\/.*\\spine"
 patterns: [
     {
+        name: "meta.function.pine"
+        begin: "^\\s*(func|def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*)"
+        beginCaptures:
+            1:
+                name: "storage.type.function.pine"
+        end: "\\s*(?:(\\:))"
+        endCaptures:
+            1:
+                name: "keyword.operator.pine"
+        patterns: [
+            {
+                include: "#keyword"
+            }
+            {
+                begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
+                contentName: "entity.name.function.pine"
+                end: "(?![A-Za-z_][A-Za-z0-9_]*)"
+            }
+            {
+                begin: "\\s*(where)\\s*"
+                beginCaptures:
+                    1:
+                        name: "keyword.control.pine"
+                end: "(?=\\:)"
+                patterns: [
+                    {
+                        begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
+                        contentName: "variable.parameter.pine"
+                        end: "(?![A-Za-z_][A-Za-z0-9_]*)"
+                    }
+                ]
+            }
+            {
+                begin: "\\s*(\\()"
+                beginCaptures:
+                    1:
+                        name: "punctuation.definition.parameters.begin.pine"
+                end: "(\\))"
+                endCaptures:
+                    1:
+                        name: "punctuation.definition.parameters.end.pine"
+                patterns: [
+                    {
+                        begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
+                        contentName: "variable.parameter.pine"
+                        end: "(?![A-Za-z_][A-Za-z0-9_]*)"
+                    }
+                    {
+                        match: ","
+                        name: "punctuation.definition.separator.pine"
+                    }
+                ]
+            }
+        ]
+    }
+    {
         include: "#keyword"
     }
     {
@@ -31,73 +87,16 @@ repository:
                 match: "\\b(return|continue|break|pass)\\b"
             }
             {
+                name: "keyword.declaration.pine"
+                match: "\\b(var|let|ref|func|class|def)\\b"
+            }
+            {
                 name: "keyword.operator.pine"
                 match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|,|\\:|\\(|\\)|\\{|\\}|\\[|\\]|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|\\^|\\||&=|^=|\\|=)"
             }
             {
                 name: "keyword.operator.boolean.pine"
                 match: "\\b(is\\ not|is|not\\ in|in|and|not|or)\\b"
-            }
-            {
-                name: "meta.function.pine"
-                begin: "^\\s*(func|def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*)"
-                beginCaptures:
-                    1:
-                        name: "storage.type.function.pine"
-                end: "\\s*(?:(\\:))"
-                endCaptures:
-                    1:
-                        name: "keyword.operator.pine"
-                patterns: [
-                    {
-                        begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
-                        contentName: "entity.name.function.pine"
-                        end: "(?![A-Za-z_][A-Za-z0-9_]*)"
-                    }
-                    {
-                        begin: "\\s*(where)\\s*"
-                        beginCaptures:
-                            1:
-                                name: "keyword.control.pine"
-                        end: "(?=\\:)"
-                        patterns: [
-                            {
-                                begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
-                                contentName: "variable.parameter.pine"
-                                end: "(?![A-Za-z_][A-Za-z0-9_]*)"
-                            }
-                            {
-                                match: ","
-                                name: "keyword.operator.pine"
-                            }
-                        ]
-                    }
-                    {
-                        begin: "\\s*(\\()"
-                        beginCaptures:
-                            1:
-                                name: "punctuation.definition.parameters.begin.pine"
-                        end: "(\\))"
-                        endCaptures:
-                            1:
-                                name: "punctuation.definition.parameters.end.pine"
-                        patterns: [
-                            {
-                                begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
-                                contentName: "variable.parameter.pine"
-                                end: "(?![A-Za-z_][A-Za-z0-9_]*)"
-                            }
-                            {
-                                match: ","
-                                name: "punctuation.definition.separator.pine"
-                            }
-                        ]
-                    }
-                ]
-            }
-            {
-                name: "keyword.declaration.pine"
-                match: "\\b(var|let|ref|func|class|def)\\b"
             }
         ]
     "constant":
