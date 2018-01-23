@@ -21,8 +21,13 @@ patterns: [
             }
             {
                 begin: "(?=\\()"
-                contentName: "punctuation.definition.parameters.begin.pine"
+                beginCaptures:
+                    1:
+                        name: "punctuation.definition.parameters.begin.pine"
                 end: "(?!\\))"
+                endCaptures:
+                    1:
+                        name: "punctuation.definition.parameters.end.pine"
             }
         ]
     }
