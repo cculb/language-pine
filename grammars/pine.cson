@@ -32,8 +32,12 @@ patterns: [
                         end: "(?![A-Za-z_][A-Za-z0-9_]*)"
                     }
                     {
-                        match: ","
                         name: "keyword.operator.pine"
+                        match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|,|\\:|\\(|\\)|\\{|\\}|\\[|\\]|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|\\^|\\||&=|^=|\\|=)"
+                    }
+                    {
+                        name: "keyword.operator.boolean.pine"
+                        match: "\\b(is\\ not|is|not\\ in|in|and|not|or)\\b"
                     }
                 ]
             }
