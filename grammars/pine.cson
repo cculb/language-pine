@@ -12,8 +12,6 @@ patterns: [
         end: "\\s*(?:(\\:))"
         endCaptures:
             1:
-                name: "punctuation.definition.parameters.end.pine"
-            2:
                 name: "keyword.operator.pine"
         patterns: [
             {
