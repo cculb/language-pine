@@ -5,11 +5,11 @@ firstLineMatch: "^#!\\s*\\/.*\\spine"
 patterns: [
     {
         name: "meta.function.pine"
-        begin: "^\\s*(func|def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*\\()"
+        begin: "^\\s*(func|def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*)"
         beginCaptures:
             1:
                 name: "storage.type.function.pine"
-        end: "(\\))\\s*(?:(\\:))"
+        end: "\\s*(?:(\\:))"
         endCaptures:
             1:
                 name: "punctuation.definition.parameters.end.pine"
