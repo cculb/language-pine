@@ -9,17 +9,13 @@ patterns: [
         beginCaptures:
             1:
                 name: "storage.type.function.pine"
-        end: "\\s*(?:(\\:))"
+        end: "(where)?\\s+(?=[A-Za-z_][A-Za-z0-9_]*[,]*)\\s*(?:(\\:))"
         endCaptures:
             1:
-                name: "keyword.operator.pine"
+                name: "keyword.control.pine"
+            2:
+                name: "keyword.control.pine"
         patterns: [
-            {
-                match: "(where)\\s+(?=[A-Za-z_][A-Za-z0-9_]*)"
-                captures:
-                    1:
-                        name: "keyword.control.pine"
-            }
             {
                 begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
                 contentName: "entity.name.function.pine"
