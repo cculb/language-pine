@@ -15,9 +15,6 @@ patterns: [
                 name: "keyword.operator.pine"
         patterns: [
             {
-                include: "#keyword"
-            }
-            {
                 begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
                 contentName: "entity.name.function.pine"
                 end: "(?![A-Za-z_][A-Za-z0-9_]*)"
@@ -33,6 +30,14 @@ patterns: [
                         begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
                         contentName: "variable.parameter.pine"
                         end: "(?![A-Za-z_][A-Za-z0-9_]*)"
+                    }
+                    {
+                        name: "keyword.operator.pine"
+                        match: "(?x)(\\+=|-=|\\*=|/=|%=|!=|=|<=|<<|<|>=|>>|>|<<=|>>=|,|\\:|\\(|\\)|\\{|\\}|\\[|\\]|\\.\\.\\.|\\.|\\?|\\+|-|\\*|/|%|~|&|\\^|\\||&=|^=|\\|=)"
+                    }
+                    {
+                        name: "keyword.operator.boolean.pine"
+                        match: "\\b(is\\ not|is|not\\ in|in|and|not|or)\\b"
                     }
                 ]
             }
