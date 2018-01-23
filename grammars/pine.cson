@@ -24,7 +24,7 @@ patterns: [
                 beginCaptures:
                     1:
                         name: "punctuation.definition.parameters.begin.pine"
-                end: "(?!\\))"
+                end: "(?=\\))"
                 endCaptures:
                     1:
                         name: "punctuation.definition.parameters.end.pine"
