@@ -19,6 +19,11 @@ patterns: [
                 contentName: "entity.name.function.pine"
                 end: "(?![A-Za-z_][A-Za-z0-9_]*)"
             }
+            {
+                begin: "(?=\\()"
+                contentName: "punctuation.definition.parameters.begin.pine"
+                end: "(?!\\))"
+            }
         ]
     }
     {
