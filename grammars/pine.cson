@@ -4,9 +4,6 @@ fileTypes: ["pine"]
 firstLineMatch: "^#!\\s*\\/.*\\spine"
 patterns: [
     {
-        include: "#keyword"
-    }
-    {
         name: "meta.function.pine"
         begin: "^\\s*(func|def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*)"
         beginCaptures:
@@ -55,13 +52,12 @@ patterns: [
                         contentName: "variable.parameter.pine"
                         end: "(?![A-Za-z_][A-Za-z0-9_]*)"
                     }
-                    {
-                        match: ","
-                        name: "punctuation.definition.separator.pine"
-                    }
                 ]
             }
         ]
+    }
+    {
+        include: "#keyword"
     }
     {
         include: "#constant"
