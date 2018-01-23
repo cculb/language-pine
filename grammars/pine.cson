@@ -24,7 +24,7 @@ patterns: [
                 beginCaptures:
                     1:
                         name: "keyword.control.pine"
-                end: "(?=\\:)"
+                end: "\\:"
             }
             {
                 begin: "\\s*(\\()"
