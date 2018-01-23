@@ -20,14 +20,14 @@ patterns: [
                 end: "(?![A-Za-z_][A-Za-z0-9_]*)"
             }
             {
-                begin: "(?=\\()"
+                begin: "(\\()"
                 beginCaptures:
                     1:
-                        name: "punctuation.definition.parameters.pine"
-                end: "(?=\\))"
+                        name: "punctuation.definition.parameters.begin.pine"
+                end: "(\\))"
                 endCaptures:
                     1:
-                        name: "punctuation.definition.parameters.pine"
+                        name: "punctuation.definition.parameters.end.pine"
             }
         ]
     }
