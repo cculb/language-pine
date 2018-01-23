@@ -34,6 +34,10 @@ patterns: [
                         contentName: "variable.parameter.pine"
                         end: "(?![A-Za-z_][A-Za-z0-9_]*)"
                     }
+                    {
+                        match: ","
+                        name: "punctuation.definition.separator.pine"
+                    }
                 ]
             }
         ]
