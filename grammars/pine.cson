@@ -4,6 +4,17 @@ fileTypes: ["pine"]
 firstLineMatch: "^#!\\s*\\/.*\\spine"
 patterns: [
     {
+        name: "meta.function-call.pine"
+        begin: "([A-Za-z_][A-Za-z0-9_]*\\()"
+        beginCaptures:
+            1:
+                name: "meta.function-call.pine"
+        end: "(\\))"
+        endCaptures:
+            1:
+                name: "meta.function-call.pine"
+    }
+    {
         name: "meta.function.pine"
         begin: "^\\s*(func|def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*)"
         beginCaptures:
