@@ -65,6 +65,17 @@ patterns: [
         ]
     }
     {
+        name: "meta.function-call.pine"
+        begin: "([A-Za-z_][A-Za-z0-9_]*\\()"
+        beginCaptures:
+            1:
+                name: "meta.function-call.pine"
+        end: "(\\))"
+        endCaptures:
+            1:
+                name: "meta.function-call.pine"
+    }
+    {
         include: "#keyword"
     }
     {
