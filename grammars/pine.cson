@@ -81,6 +81,9 @@ patterns: [
         include: "#strings"
     }
     {
+        include: "#builtin"
+    }
+    {
         include: "#variable"
     }
     {
@@ -134,6 +137,13 @@ repository:
                         match: "([^\\\\]|\\\\.)"
                     }
                 ]
+            }
+        ]
+    "builtin":
+        patterns: [
+            {
+                name: "support.type.core.pine"
+                match: "(?x)\\b(Null|Boolean|Numeric|String|Range|Array|Set)\\b"
             }
         ]
     "variable":
