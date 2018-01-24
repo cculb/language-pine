@@ -4,6 +4,9 @@ fileTypes: ["pine"]
 firstLineMatch: "^#!\\s*\\/.*\\spine"
 patterns: [
     {
+        include: "#builtin"
+    }
+    {
         name: "meta.function.pine"
         begin: "^\\s*(func|def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*)"
         beginCaptures:
@@ -81,9 +84,6 @@ patterns: [
         include: "#strings"
     }
     {
-        include: "#builtin"
-    }
-    {
         include: "#variable"
     }
     {
@@ -91,6 +91,13 @@ patterns: [
     }
 ]
 repository:
+    "builtin":
+        patterns: [
+            {
+                name: "support.type.core.pine"
+                match: "(?x)\\b(Null|Boolean|Numeric|String|Range|Array|Set)\\b"
+            }
+        ]
     "keyword":
         patterns: [
             {
@@ -137,13 +144,6 @@ repository:
                         match: "([^\\\\]|\\\\.)"
                     }
                 ]
-            }
-        ]
-    "builtin":
-        patterns: [
-            {
-                name: "support.type.core.pine"
-                match: "(?x)\\b(Null|Boolean|Numeric|String|Range|Array|Set)\\b"
             }
         ]
     "variable":
