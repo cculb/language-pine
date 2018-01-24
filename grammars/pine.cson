@@ -36,6 +36,9 @@ patterns: [
                         include: "#keyword"
                     }
                     {
+                        include: "#constant"
+                    }
+                    {
                         begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
                         contentName: "variable.parameter.pine"
                         end: "(?![A-Za-z_][A-Za-z0-9_]*)"
