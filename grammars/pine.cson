@@ -142,7 +142,7 @@ repository:
         patterns: [
             {
                 name: "punctuation.definition.parameters.pine"
-                begin: "\\s*[A-Za-z_][A-Za-z0-9_]*\\(\\()"
+                begin: "\\s*([A-Za-z_][A-Za-z0-9_]*\\()"
                 beginCaptures:
                     1:
                         name: "punctuation.definition.parameters.begin.pine"
