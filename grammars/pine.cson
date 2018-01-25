@@ -7,14 +7,7 @@ patterns: [
         include: "#builtin"
     }
     {
-        name: "meta.function-call.pine"
-        begin: "\\s*([A-Za-z_][A-Za-z0-9_]*\\()"
-        end: "(\\))"
-        pattern: [
-            {
-                include: "#parameter"
-            }
-        ]
+        include: "#parameter"
     }
     {
         name: "meta.function.pine"
