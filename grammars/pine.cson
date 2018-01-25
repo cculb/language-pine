@@ -10,7 +10,11 @@ patterns: [
         name: "meta.function-call.pine"
         begin: "\\s*([A-Za-z_][A-Za-z0-9_]*\\()"
         end: "(\\))"
-        include: "#parameter"
+        pattern: [
+            {
+                include: "#parameter"
+            }
+        ]
     }
     {
         name: "meta.function.pine"
