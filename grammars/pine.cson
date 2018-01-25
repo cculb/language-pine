@@ -52,7 +52,7 @@ patterns: [
     }
     {
         name: "meta.function-call.pine"
-        begin:
+        match: "[A-Za-z_][A-Za-z0-9_]*\\("
         patterns: [
             {
                 include: "#parameter"
