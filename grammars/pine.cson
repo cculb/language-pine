@@ -51,13 +51,7 @@ patterns: [
         ]
     }
     {
-        name: "meta.function-call.pine"
-        match: "[A-Za-z_][A-Za-z0-9_]*\\("
-        patterns: [
-            {
-                include: "#parameter"
-            }
-        ]
+        include: "#parameter"
     }
     {
         include: "#keyword"
