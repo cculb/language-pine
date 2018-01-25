@@ -21,6 +21,15 @@ patterns: [
                 name: "keyword.operator.pine"
         patterns: [
             {
+                include: "#builtin"
+            }
+            {
+                include: "#keyword"
+            }
+            {
+                include: "#constant"
+            }
+            {
                 include: "#parameter"
             }
             {
