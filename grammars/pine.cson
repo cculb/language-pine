@@ -21,6 +21,9 @@ patterns: [
                 name: "keyword.operator.pine"
         patterns: [
             {
+                include: "#parameter"
+            }
+            {
                 begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
                 contentName: "entity.name.function.pine"
                 end: "(?![A-Za-z_][A-Za-z0-9_]*)"
