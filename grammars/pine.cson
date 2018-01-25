@@ -7,6 +7,9 @@ patterns: [
         include: "#builtin"
     }
     {
+        include: "#parameter"
+    }
+    {
         name: "meta.function.pine"
         begin: "^\\s*(func|def)\\s+(?=[A-Za-z_][A-Za-z0-9_]*)"
         beginCaptures:
@@ -70,9 +73,6 @@ patterns: [
     }
     {
         include: "#variable"
-    }
-    {
-        include: "#parameter"
     }
     {
         include: "#comments"
