@@ -46,34 +46,17 @@ patterns: [
                 ]
             }
             {
-                begin: "\\s*(\\()"
-                beginCaptures:
-                    1:
-                        name: "punctuation.definition.parameters.begin.pine"
-                end: "(\\))"
-                endCaptures:
-                    1:
-                        name: "punctuation.definition.parameters.end.pine"
-                patterns: [
-                    {
-                        begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
-                        contentName: "variable.parameter.pine"
-                        end: "(?![A-Za-z_][A-Za-z0-9_]*)"
-                    }
-                ]
+                include: "#parameter"
             }
         ]
     }
     {
         name: "meta.function-call.pine"
-        begin: "([A-Za-z_][A-Za-z0-9_]*\\()"
-        beginCaptures:
-            1:
-                name: "meta.function-call.pine"
-        end: "(\\))"
-        endCaptures:
-            1:
-                name: "meta.function-call.pine"
+        patterns: [
+            {
+                include: "#parameter"
+            }
+        ]
     }
     {
         include: "#keyword"
@@ -152,6 +135,27 @@ repository:
             {
                 name: "variable.pine"
                 match: "[A-Za-z_][a-zA-Z0-9_]*"
+            }
+        ]
+    "parameter":
+        patterns: [
+            {
+                name: "punctuation.definition.parameters.pine"
+                begin: "\\s*(\\()"
+                beginCaptures:
+                    1:
+                        name: "punctuation.definition.parameters.begin.pine"
+                end: "(\\))"
+                endCaptures:
+                    1:
+                        name: "punctuation.definition.parameters.end.pine"
+                patterns: [
+                    {
+                        begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
+                        contentName: "variable.parameter.pine"
+                        end: "(?![A-Za-z_][A-Za-z0-9_]*)"
+                    }
+                ]
             }
         ]
     "comments":
