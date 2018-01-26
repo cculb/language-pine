@@ -69,7 +69,7 @@ patterns: [
         include: "#constant"
     }
     {
-        include: "#strings"
+        include: "#string"
     }
     {
         include: "#variable"
@@ -120,7 +120,7 @@ repository:
                 match: "\\b(true|false|null)\\b"
             }
         ]
-    "strings":
+    "string":
         patterns: [
             {
                 name: "string.quoted.double.pine"
@@ -156,6 +156,9 @@ repository:
                 patterns: [
                     {
                         include: "#constant"
+                    }
+                    {
+                        include: "#string"
                     }
                     {
                         begin: "(?=[A-Za-z_][A-Za-z0-9_]*)"
