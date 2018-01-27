@@ -150,9 +150,6 @@ repository:
                     {
                         include: "#string"
                     }
-                    {
-                        include: "#keyword"
-                    }
                 ]
             }
         ]
