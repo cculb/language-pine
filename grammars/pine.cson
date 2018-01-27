@@ -131,6 +131,9 @@ repository:
                         name: "punctuation.definition.parameters.end.pine"
                 patterns: [
                     {
+                        include: "#comment"
+                    }
+                    {
                         name: "punctuation.definition.separator.pine"
                         match: ","
                     }
