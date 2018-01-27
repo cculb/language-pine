@@ -128,7 +128,12 @@ repository:
                         name: "punctuation.definition.parameters.end.pine"
                 patterns: [
                     {
-                        include: "#operator"
+                        name: "punctuation.definition.separator.pine"
+                        match: ","
+                    }
+                    {
+                        name: "variable.parameter.pine"
+                        match: "[A-Za-z_][a-zA-Z0-9_]*"
                     }
                     {
                         include: "#constant"
@@ -137,12 +142,7 @@ repository:
                         include: "#string"
                     }
                     {
-                        name: "punctuation.definition.separator.pine"
-                        match: ","
-                    }
-                    {
-                        name: "variable.parameter.pine"
-                        match: "[A-Za-z_][a-zA-Z0-9_]*"
+                        include: "#operator"
                     }
                 ]
             }
