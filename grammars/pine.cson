@@ -13,6 +13,9 @@ patterns: [
         include: "#index"
     }
     {
+        include: "#operator"
+    }
+    {
         include: "#constant"
     }
 ]
