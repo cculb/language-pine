@@ -7,9 +7,6 @@ patterns: [
         include: "#comment"
     }
     {
-        include: "#parameter"
-    }
-    {
         include: "#argument"
     }
 ]
