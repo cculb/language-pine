@@ -142,9 +142,6 @@ repository:
                         include: "#parameter"
                     }
                     {
-                        include: "#keyword"
-                    }
-                    {
                         include: "#constant"
                     }
                     {
@@ -152,6 +149,9 @@ repository:
                     }
                     {
                         include: "#operator"
+                    }
+                    {
+                        include: "#keyword"
                     }
                 ]
             }
