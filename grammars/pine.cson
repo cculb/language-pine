@@ -135,6 +135,12 @@ repository:
                         match: ","
                     }
                     {
+                        include: "#keyword"
+                    }
+                    {
+                        include: "#constant"
+                    }
+                    {
                         name: "variable.parameter.pine"
                         match: "[A-Za-z_][a-zA-Z0-9_]*"
                     }
@@ -142,13 +148,7 @@ repository:
                         include: "#parameter"
                     }
                     {
-                        include: "#keyword"
-                    }
-                    {
                         include: "#operator"
-                    }
-                    {
-                        include: "#constant"
                     }
                     {
                         include: "#string"
