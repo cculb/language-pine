@@ -9,6 +9,9 @@ patterns: [
     {
         include: "#parameter"
     }
+    {
+        include: "#argument"
+    }
 ]
 repository:
     "comment":
