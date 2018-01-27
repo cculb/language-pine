@@ -121,7 +121,7 @@ repository:
     "parameter":
         patterns: [
             {
-                begin: "(\\()"
+                begin: "(?<=[A-Za-z_][A-Za-z0-9_]*)(\\()"
                 beginCaptures:
                     1:
                         name: "punctuation.definition.parameters.begin.pine"
