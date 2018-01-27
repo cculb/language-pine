@@ -131,7 +131,7 @@ repository:
                         include: "#keyword"
                     }
                     {
-                        name: "punctuation.definition.parameters.pine"
+                        name: "punctuation.definition.separator.pine"
                         match: ","
                     }
                     {
