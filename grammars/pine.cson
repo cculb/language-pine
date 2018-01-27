@@ -169,11 +169,11 @@ repository:
                     1:
                         name: "variable.pine"
                     2:
-                        name: "punctuation.definition.argument.begin.pine"
+                        name: "punctuation.definition.arguments.begin.pine"
                 end: "(\\))"
                 endCaptures:
                     1:
-                        name: "punctuation.definition.argument.end.pine"
+                        name: "punctuation.definition.arguments.end.pine"
                 patterns: [
                     {
                         include: "#comment"
