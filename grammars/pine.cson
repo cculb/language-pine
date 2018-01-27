@@ -128,6 +128,12 @@ repository:
                         name: "punctuation.definition.parameters.end.pine"
                 patterns: [
                     {
+                        include: "#constant"
+                    }
+                    {
+                        include: "#string"
+                    }
+                    {
                         name: "punctuation.definition.separator.pine"
                         match: ","
                     }
