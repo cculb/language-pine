@@ -142,6 +142,9 @@ repository:
                         include: "#parameter"
                     }
                     {
+                        include: "#keyword"
+                    }
+                    {
                         include: "#constant"
                     }
                     {
