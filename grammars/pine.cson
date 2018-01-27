@@ -144,6 +144,9 @@ repository:
                     {
                         include: "#operator"
                     }
+                    {
+                        include: "#parameter"
+                    }
                 ]
             }
         ]
