@@ -7,10 +7,10 @@ patterns: [
         include: "#comment"
     }
     {
-        include: "#argument"
+        include: "#parameter"
     }
     {
-        include: "#parameter"
+        include: "#argument"
     }
 ]
 repository:
