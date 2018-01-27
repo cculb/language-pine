@@ -136,6 +136,9 @@ repository:
                         include: "#comment"
                     }
                     {
+                        include: "#parameter"
+                    }
+                    {
                         name: "punctuation.definition.separator.pine"
                         match: ","
                     }
@@ -154,9 +157,6 @@ repository:
                     {
                         name: "variable.parameter.pine"
                         match: "[A-Za-z_][a-zA-Z0-9_]*"
-                    }
-                    {
-                        include: "#parameter"
                     }
                 ]
             }
