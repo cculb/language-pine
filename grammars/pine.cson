@@ -128,9 +128,6 @@ repository:
                         name: "punctuation.definition.parameters.end.pine"
                 patterns: [
                     {
-                        include: "#keyword"
-                    }
-                    {
                         name: "punctuation.definition.separator.pine"
                         match: ","
                     }
