@@ -34,7 +34,7 @@ repository:
         patterns: [
             {
                 name: "keyword.control.declaration.pine"
-                match: "\\b(var|let|ref|func|class|def|new|import|where|inherits|)\\b"
+                match: "\\b(var|let|ref|func|class|def|new|import|where|inherits)\\b"
             }
             {
                 name: "keyword.control.loop.pine"
@@ -140,6 +140,9 @@ repository:
                     }
                     {
                         include: "#parameter"
+                    }
+                    {
+                        include: "#keyword"
                     }
                     {
                         include: "#operator"
