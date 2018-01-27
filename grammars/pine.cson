@@ -124,7 +124,7 @@ repository:
                 begin: "([A-Za-z_][A-Za-z0-9_]*)(\\()"
                 beginCaptures:
                     1:
-                        name: "#variable.pine"
+                        name: "variable.pine"
                     2:
                         name: "punctuation.definition.parameters.begin.pine"
                 end: "(\\))"
