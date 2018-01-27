@@ -87,7 +87,7 @@ repository:
                 match: "\\b(true|false|null)\\b"
             }
             {
-                name: "constant.numeric.integer.pine"
+                name: "constant.numeric.real.pine"
                 match: "\\b([+-]?[0-9]*\\.?[0-9]+)"
             }
             {
