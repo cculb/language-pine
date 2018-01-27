@@ -83,7 +83,7 @@ repository:
     "constant":
         patterns: [
             {
-                name: "constat.language.pine"
+                name: "constant.language.pine"
                 match: "\\b(true|false|null)\\b"
             }
             {
