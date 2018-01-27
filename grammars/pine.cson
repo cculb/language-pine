@@ -165,7 +165,7 @@ repository:
                     }
                     {
                         name: "variable.argument.pine"
-                        match: "[A-Za-z_][a-zA-Z0-9_]*"
+                        match: "[A-Za-z_][A-Za-z0-9_]*"
                     }
                 ]
             }
