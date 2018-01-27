@@ -4,10 +4,10 @@ fileTypes: ["pine"]
 firstLineMatch: "^#!\\s*\\/.*\\spine"
 patterns: [
     {
-        include: "#keyword"
+        include: "#parameter"
     }
     {
-        include: "#parameter"
+        include: "#keyword"
     }
 ]
 repository:
@@ -132,7 +132,7 @@ repository:
                 patterns: [
                     {
                         name: "punctuation.definition.parameter.pine"
-                        match: ","
+                        match: "(,)"
                     }
                     {
                         name: "variable.parameter.pine"
