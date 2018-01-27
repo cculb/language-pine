@@ -132,7 +132,7 @@ repository:
                 patterns: [
                     {
                         name: "punctuation.definition.parameters.pine"
-                        match: "(,)"
+                        match: ","
                     }
                     {
                         name: "variable.parameter.pine"
