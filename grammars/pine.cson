@@ -141,17 +141,17 @@ repository:
                         include: "#constant"
                     }
                     {
+                        include: "#operator"
+                    }
+                    {
+                        include: "#string"
+                    }
+                    {
                         name: "variable.parameter.pine"
                         match: "[A-Za-z_][a-zA-Z0-9_]*"
                     }
                     {
                         include: "#parameter"
-                    }
-                    {
-                        include: "#operator"
-                    }
-                    {
-                        include: "#string"
                     }
                 ]
             }
