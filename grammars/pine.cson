@@ -131,8 +131,8 @@ repository:
                         name: "punctuation.definition.parameters.end.pine"
                 patterns: [
                     {
-                        name: "(,)"
-                        match: "punctuation.definition.parameter.pine"
+                        name: "punctuation.definition.parameter.pine"
+                        match: "(,)""
                     }
                     {
                         name: "variable.parameter.pine"
