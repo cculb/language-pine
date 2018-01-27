@@ -131,11 +131,11 @@ repository:
                         name: "punctuation.definition.parameters.end.pine"
                 patterns: [
                     {
-                        include: "#keyword"
-                    }
-                    {
                         name: "punctuation.definition.separator.pine"
                         match: ","
+                    }
+                    {
+                        include: "#operator"
                     }
                     {
                         name: "variable.parameter.pine"
@@ -151,7 +151,7 @@ repository:
                         include: "#string"
                     }
                     {
-                        include: "#operator"
+                        include: "#keyword"
                     }
                 ]
             }
