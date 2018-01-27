@@ -109,7 +109,7 @@ repository:
             }
             {
                 name: "constant.numeric.real.pine"
-                match: "([+-]?[0-9]*\\.?[0-9]+)"
+                match: "([0-9]*\\.?[0-9]+)"
             }
         ]
     "string":
