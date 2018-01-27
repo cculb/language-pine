@@ -136,6 +136,9 @@ repository:
                         match: "[A-Za-z_][a-zA-Z0-9_]*"
                     }
                     {
+                        include: "#parameter"
+                    }
+                    {
                         include: "#constant"
                     }
                     {
