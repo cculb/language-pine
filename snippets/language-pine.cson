@@ -16,7 +16,7 @@
         'body': 'else if ${1:condition}:\n\t${2:pass}'
     'Else':
         'prefix': 'else'
-        'body': 'else:\n\t{1:pass}'
+        'body': 'else:\n\t${1:pass}'
     'For':
         'prefix': 'for'
         'body': 'for ${1:elements} in ${2: variable}:\n\t${3:pass}'
@@ -29,3 +29,9 @@
     'Switch':
         'prefix': 'switch'
         'body': 'switch ${1:variable}:\n\tcase ${2:condition}:\n\t\tpass\n\tdefault:\n\t\tpass'
+    'Try':
+        'prefix': 'try'
+        'body': 'try:\n\t${1:pass}\ncatch ${2:exception}:\n\tpass'
+    'Finally':
+        'prefix': 'finally'
+        'body': 'finally:\n\t${1:pass}'
