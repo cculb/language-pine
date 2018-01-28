@@ -2,3 +2,27 @@
     'Constructor':
         'prefix': 'def'
         'body': 'def ${1:name}(${2:parameter}):\n\t${3:pass}'
+    'Function':
+        'prefix': 'func'
+        'body': 'def ${1:name}(${2:parameter}):\n\t${3:pass}'
+    'Class':
+        'prefix': 'class'
+        'body': 'class ${1:name}:\n\t${2:pass}'
+    'If':
+        'prefix': 'if'
+        'body': 'if ${1:condition}:\n\t${2:pass}'
+    'Else-if':
+        'prefix': 'else if'
+        'body': 'else if ${1:condition}:\n\t${2:pass}'
+    'Else':
+        'prefix': 'else'
+        'body': 'else:\n\t{1:pass}'
+    'For':
+        'prefix': 'for'
+        'body': 'for ${1:elements} in ${2: variable}:\n\t${3:pass}'
+    'While':
+        'prefix': 'while'
+        'body': 'while ${1:condition}:\n\t${2:pass}'
+    'Do':
+        'prefix': 'do'
+        'body': 'do:\n\t${1:pass}\nwhile ${1:condition}'
