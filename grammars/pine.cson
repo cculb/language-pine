@@ -7,16 +7,22 @@ patterns: [
         include: "#comment"
     }
     {
-        include: "#argument"
+        include: "#builtin"
     }
     {
-        include: "#index"
+        include: "#keyword"
+    }
+    {
+        include: "#operator"
     }
     {
         include: "#constant"
     }
     {
-        include: "#operator"
+        include: "#string"
+    }
+    {
+        include: "#variable"
     }
 ]
 repository:
@@ -125,91 +131,5 @@ repository:
             {
                 name: "variable.pine"
                 match: "[A-Za-z_][a-zA-Z0-9_]*"
-            }
-        ]
-    "argument":
-        patterns: [
-            {
-                begin: "([A-Za-z_][A-Za-z0-9_]*)\\s*(\\()"
-                beginCaptures:
-                    1:
-                        name: "variable.pine"
-                    2:
-                        name: "punctuation.definition.arguments.begin.pine"
-                end: "(\\))"
-                endCaptures:
-                    1:
-                        name: "punctuation.definition.arguments.end.pine"
-                patterns: [
-                    {
-                        include: "#comment"
-                    }
-                    {
-                        include: "#argument"
-                    }
-                    {
-                        name: "punctuation.definition.separator.pine"
-                        match: ","
-                    }
-                    {
-                        include: "#keyword"
-                    }
-                    {
-                        include: "#constant"
-                    }
-                    {
-                        include: "#operator"
-                    }
-                    {
-                        include: "#string"
-                    }
-                    {
-                        name: "variable.argument.pine"
-                        match: "[A-Za-z_][A-Za-z0-9_]*"
-                    }
-                ]
-            }
-        ]
-    "index":
-        patterns: [
-            {
-                begin: "([+-]?[A-Za-z_][A-Za-z0-9_]*)\\s*(\\[)"
-                beginCaptures:
-                    1:
-                        name: "variable.pine"
-                    2:
-                        name: "punctuation.definition.array.begin.pine"
-                end: "(\\])"
-                endCaptures:
-                    1:
-                        name: "punctuation.definition.array.end.pine"
-                patterns: [
-                    {
-                        include: "#comment"
-                    }
-                    {
-                        include: "#index"
-                    }
-                    {
-                        name: "punctuation.definition.separator.pine"
-                        match: "\\:"
-                    }
-                    {
-                        include: "#keyword"
-                    }
-                    {
-                        include: "#constant"
-                    }
-                    {
-                        include: "#operator"
-                    }
-                    {
-                        include: "#string"
-                    }
-                    {
-                        name: "variable.argument.pine"
-                        match: "[A-Za-z_][a-zA-Z0-9_]*"
-                    }
-                ]
             }
         ]
