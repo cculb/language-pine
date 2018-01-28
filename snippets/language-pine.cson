@@ -1,4 +1,10 @@
 '.source.pine':
+    'Variable':
+        'prefix': 'var'
+        'body': 'var ${1:name}: ${2:value}'
+    'Constant':
+        'prefix': 'let'
+        'body': 'let ${1:name}: ${2:value}'
     'Constructor':
         'prefix': 'def'
         'body': 'def ${1:name}(${2:parameter}):\n\t${3:pass}'
