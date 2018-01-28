@@ -36,8 +36,8 @@
         'prefix': 'switch'
         'body': 'switch ${1:variable}:\n\tcase ${2:condition}:\n\t\tpass\n\tdefault:\n\t\tpass'
     'Case':
-        'prefix': 'case ${1:condition}:\n\t\tpass'
-        'body': 'case $'
+        'prefix': 'case'
+        'body': 'case ${1:condition}:\n\t\tpass'
     'Try':
         'prefix': 'try'
         'body': 'try:\n\t${1:pass}\ncatch ${2:exception}:\n\tpass'
