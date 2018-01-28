@@ -25,4 +25,4 @@
         'body': 'while ${1:condition}:\n\t${2:pass}'
     'Do':
         'prefix': 'do'
-        'body': 'do:\n\t${1:pass}\nwhile ${1:condition}'
+        'body': 'do:\n\t${1:pass}\nwhile ${2:condition}'
