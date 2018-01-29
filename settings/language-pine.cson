@@ -4,5 +4,5 @@
         tabLength: 4
         preferredLineLength: 8
         commentStart: '# '
-        increaseIndentPattern: '^\\s*(class|def|if|else|try|catch|finally|for|while\\s+(def|for))\\b.*:\\s*$'
-        decreaseIndentPattern: '^\\s*(else|catch|finally)\\b.*:\\s*$'
+        increaseIndentPattern: '^\\s*(def|func|class|if|else|for|do|while|switch|case|default|try|catch|finally)\\b.*:\\s*$'
+        decreaseIndentPattern: '^\\s*(else|while|catch|finally)\\b.*:\\s*$'
