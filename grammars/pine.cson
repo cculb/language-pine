@@ -53,11 +53,11 @@ repository:
             }
             {
                 name: "keyword.control.loop.pine"
-                match: "\\b(for|while|do)\\b"
+                match: "\\b(for|while)\\b"
             }
             {
                 name: "keyword.control.conditional.pine"
-                match: "\\b(if|else|switch|case|default)\\b"
+                match: "\\b(if|else\ if|else|switch|case|default)\\b"
             }
             {
                 name: "keyword.control.flow.pine"
