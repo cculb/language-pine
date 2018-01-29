@@ -31,7 +31,7 @@
         'body': 'while ${1:condition}:\n\t${2:statements}'
     'Do-while':
         'prefix': 'do'
-        'body': 'do:\n\t${1:statements}\nwhile {2:condition}'
+        'body': 'do:\n\t${1:statements}\nwhile ${2:condition}'
     'Switch':
         'prefix': 'switch'
         'body': 'switch ${1:variable}:\n\tcase ${2:condition}:\n\t\tstatements\n\n\tdefault:\n\t\tstatements'
