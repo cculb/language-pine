@@ -38,7 +38,7 @@
     'Case':
         'prefix': 'case'
         'body': 'case ${1:condition}:\n\t\tpass'
-    'Try':
+    'Try-catch':
         'prefix': 'try'
         'body': 'try:\n\t${1:pass}\ncatch ${2:exception}:\n\tpass'
     'Finally':
