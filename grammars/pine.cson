@@ -53,7 +53,7 @@ repository:
             }
             {
                 name: "keyword.control.loop.pine"
-                match: "\\b(for|while|until)\\b"
+                match: "\\b(for|while|do)\\b"
             }
             {
                 name: "keyword.control.conditional.pine"
