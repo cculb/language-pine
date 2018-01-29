@@ -7,37 +7,40 @@
         'body': 'let ${1:name}: ${2:expression}'
     'Constructor':
         'prefix': 'def'
-        'body': 'def ${1:name}(${2:parameter}):\n\t${3:pass}'
+        'body': 'def ${1:name}(${2:parameter}):\n\t${3:statements}'
     'Function':
         'prefix': 'func'
-        'body': 'def ${1:name}(${2:parameter}):\n\t${3:pass}'
+        'body': 'def ${1:name}(${2:parameter}):\n\t${3:statements}'
     'Class':
         'prefix': 'class'
-        'body': 'class ${1:name}:\n\t${2:pass}'
+        'body': 'class ${1:name}:\n\t${2:statements}'
     'If':
         'prefix': 'if'
-        'body': 'if ${1:condition}:\n\t${2:pass}'
+        'body': 'if ${1:condition}:\n\t${2:statements}'
     'Else-if':
         'prefix': 'else if'
-        'body': 'else if ${1:condition}:\n\t${2:pass}'
+        'body': 'else if ${1:condition}:\n\t${2:statements}'
     'Else':
         'prefix': 'else'
-        'body': 'else:\n\t${1:pass}'
+        'body': 'else:\n\t${1:statements}'
     'For':
         'prefix': 'for'
-        'body': 'for ${1:elements} in ${2: collection}:\n\t${3:pass}'
+        'body': 'for ${1:elements} in ${2: collection}:\n\t${3:statements}'
     'While':
         'prefix': 'while'
-        'body': 'while ${1:condition}:\n\t${2:pass}'
+        'body': 'while ${1:condition}:\n\t${2:statements}'
+    'Do-while':
+        'prefix': 'do'
+        'body': 'do:\n\t${1:statements}\nwhile ${2:condition}'
     'Switch':
         'prefix': 'switch'
-        'body': 'switch ${1:variable}:\n\tcase ${2:condition}:\n\t\tpass\n\n\tdefault:\n\t\tpass'
+        'body': 'switch ${1:variable}:\n\tcase ${2:condition}:\n\t\tstatements\n\n\tdefault:\n\t\tstatements'
     'Case':
         'prefix': 'case'
-        'body': 'case ${1:condition}:\n\t\tpass'
+        'body': 'case ${1:condition}:\n\t\tstatements'
     'Try-catch':
         'prefix': 'try'
-        'body': 'try:\n\t${1:pass}\ncatch ${2:exception}:\n\tpass'
+        'body': 'try:\n\t${1:statements}\ncatch ${2:exception}:\n\tstatements'
     'Finally':
         'prefix': 'finally'
-        'body': 'finally:\n\t${1:pass}'
+        'body': 'finally:\n\t${1:statements}'
