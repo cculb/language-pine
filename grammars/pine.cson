@@ -68,7 +68,7 @@ repository:
                 match: "\\b(try|catch|finally|throw)\\b"
             }
             {
-                name: "keyword.operator.boolean.pine"
+                name: "keyword.operator.logical.pine"
                 match: "\\b(is\\ not|is|not\\ in|in|and|not|or)\\b"
             }
         ]
