@@ -17,6 +17,12 @@
     'If':
         'prefix': 'if'
         'body': 'if ${1:condition}:\n\t${2:statements}'
+    'If-else':
+        'prefix': 'ifelse'
+        'body': 'if ${1:condition}:\n\t${2:statements}\nelse:\n\t${3:statements}'
+    'If-else-if':
+        'prefix': 'ifelseif'
+        'body': 'if ${1:condition}:\n\t${2:statements}\nelse if:\n\t${3:statements}\nelse:\n\t${4:statements}'
     'Else-if':
         'prefix': 'else if'
         'body': 'else if ${1:condition}:\n\t${2:statements}'
@@ -40,7 +46,10 @@
         'body': 'case ${1:condition}:\n\t\tstatements'
     'Try-catch':
         'prefix': 'try'
-        'body': 'try:\n\t${1:statements}\ncatch ${2:exception}:\n\tstatements'
+        'body': 'try:\n\t${1:statements}\ncatch ${2:exception}:\n\t${3:statements}'
+    'Try-catch-finally':
+        'prefix': 'tryf'
+        'body': 'try:\n\t${1:statements}\ncatch ${2:exception}:\n\t${3:statements}\nfinally:\n\t${4:statements}'
     'Finally':
         'prefix': 'finally'
         'body': 'finally:\n\t${1:statements}'
