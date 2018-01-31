@@ -10,7 +10,7 @@
         'body': 'def ${1:name}(${2:parameter}):\n\t${3:statements}'
     'Function':
         'prefix': 'func'
-        'body': 'def ${1:name}(${2:parameter}):\n\t${3:statements}'
+        'body': 'func ${1:name}(${2:parameter}):\n\t${3:statements}'
     'Class':
         'prefix': 'class'
         'body': 'class ${1:name}:\n\tdef ${2:name}(${3:parameter}):\n\t\t${4:statements}'
